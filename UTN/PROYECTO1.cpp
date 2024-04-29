@@ -201,18 +201,31 @@ int main(){
         cout << "Numero de mes invalido, ingrese un numero de mes entre el 1 y el 12";
     }
 
+    // PREGUNTARLE AL USUARIO SI LE GUSTA FESTEJAR SU CUMPLEAÑOS
+    
     string pregunta;
     cout << "\n\nTe gusta festejar tu cumpleaños? " << endl;
     cin.ignore();
     getline (cin, pregunta);
 
-    if (pregunta == "Si" || pregunta == "si" || pregunta == "SI"){
+    if (pregunta == "Si" || pregunta == "si" || pregunta == "SI" || pregunta == "sI"){
         cout << "Que bueno";
-    } else if ( pregunta == "No" || pregunta == "no" || pregunta == "NO"){
+    } else if ( pregunta == "No" || pregunta == "no" || pregunta == "NO" || pregunta == "nO"){
         cout << "Que lastima";
     } else {
         cout << "ERROR. Las unicas respuestas permitidas son SI y NO";
     }
     
+    // PREGUNTARLE AL USUARIO LA CANTIDAD DE INVITADOS
+
+    float invitados;
+    double total_invitados;
+    cout << "\n\nPorfavor ingrese el numero de invitados para su cumpleaños: ";
+    cin >> invitados;
+
+    total_invitados = round(sqrt(pow(invitados, 4)));
+
+    cout << "\n\n Tus invitados a la cuarta, raiz cuadrado y redondeando el valor son: " << total_invitados;
+
     return 0;
 }
