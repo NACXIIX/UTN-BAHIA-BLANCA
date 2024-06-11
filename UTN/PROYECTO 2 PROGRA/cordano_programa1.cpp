@@ -10,7 +10,7 @@ int matriz[3][3];
 int menu();
 void llenarMatriz();
 void mostrarMatriz();
-int buscarValor();
+void buscarValor();
 int devolverValor();
 int ordenarMatriz();
 
@@ -25,6 +25,8 @@ int main(){
         case 2:
             mostrarMatriz();
             break;
+        case 3:
+            buscarValor();
         case 6:
             cout << "Saliste del menu" << endl;
             break;
@@ -83,6 +85,7 @@ void llenarMatriz(){
             break;
         case 3:
             cout << "Saliste del menu"; // Se podria agregar una forma de volver al menu anterior
+            break;
         }
 
     } while (respuesta != 1 && respuesta != 2 && respuesta !=3);
@@ -120,3 +123,24 @@ void mostrarMatriz(){
 }
 
 //BUSQUEDA DE UN VALOR INGRESADO POR EL USUARIO DENTRO DE LA MATRIZ
+void buscarValor(){
+    int numero, posicion;
+    bool encontrado = false;
+    cout << "Que numero estas buscando?";
+    cin >> numero;
+
+    for(int i = 0; i < 3; i++){
+        for (int j = 0; j < 3; j++){
+            if(numero == matriz[i][j])
+                encontrado = true;
+                posicion = matriz[i][j];
+        }
+    }
+
+    if (encontrado == false){
+        cout << "El numero que ingresaste no se ha encontrado" << endl;
+    } else {
+        cout << "Tu numero se encontró en la posicion :" << posicion << endl;
+    }
+
+}
