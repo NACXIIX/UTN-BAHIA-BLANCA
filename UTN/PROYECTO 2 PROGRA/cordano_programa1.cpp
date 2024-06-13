@@ -4,15 +4,16 @@
 using namespace std;
 
 //Funciones globales
-int matriz[3][3];
+const int n = 3;
+int matriz[n][n];
 
-//Prototipo de funcion
+//Prototipos de funciones
 int menu();
 void llenarMatriz();
 void mostrarMatriz();
 void buscarValor();
 int devolverValor();
-int ordenarMatriz();
+void ordenarMatriz();
 
 // PROGRAMA PRINCIPAL
 int main(){
@@ -27,6 +28,10 @@ int main(){
             break;
         case 3:
             buscarValor();
+            break;
+        case 5:
+            ordenarMatriz();
+            break;
         case 6:
             cout << "Saliste del menu" << endl;
             break;
@@ -64,27 +69,27 @@ void llenarMatriz(){
         cout << "Elija de que manera desea cargar la matriz 3x3:" << endl;
         cout << "1. Valores aleatorios" << endl;
         cout << "2. De manera manual" << endl;
-        cout << "3. SALIR" << endl;
+        cout << "3. Volver al menu" << endl;
         cin >> respuesta;
 
         switch (respuesta){
         case 1:
-            for(int i = 0; i < 3; i++){
-                for (int j = 0; j < 3; j++){
+            for(int i = 0; i < n; i++){
+                for (int j = 0; j < n; j++){
                     matriz[i][j] = rand() % 100+1;
                 }
             }
             break;
         case 2:
-            for(int i = 0; i < 3; i++){
-                for(int j = 0; j < 3; j++){
+            for(int i = 0; i < n; i++){
+                for(int j = 0; j < n; j++){
                     cout << "Digite el numero [" <<i<< "][" <<j<<"]: ";
                     cin >> matriz[i][j];
                 }
             }
             break;
         case 3:
-            cout << "Saliste del menu"; // Se podria agregar una forma de volver al menu anterior
+            main();
             break;
         }
 
@@ -98,9 +103,9 @@ void mostrarMatriz(){
     int volver;
 
     cout << "-------------------";
-    for(int i = 0; i < 3; i ++){
+    for(int i = 0; i < n; i ++){
         cout << endl;
-        for(int j = 0; j < 3; j++){
+        for(int j = 0; j < n; j++){
             cout << matriz[i][j] << "\t";
         }
         cout << endl;
@@ -123,24 +128,123 @@ void mostrarMatriz(){
 }
 
 //BUSQUEDA DE UN VALOR INGRESADO POR EL USUARIO DENTRO DE LA MATRIZ
+
 void buscarValor(){
-    int numero, posicion;
+    int numero, volver;
     bool encontrado = false;
     cout << "Que numero estas buscando?";
     cin >> numero;
 
-    for(int i = 0; i < 3; i++){
-        for (int j = 0; j < 3; j++){
-            if(numero == matriz[i][j])
+    for(int i = 0; i < n; i++){
+        for (int j = 0; j < n; j++){
+            if(matriz[i][j] == numero){
                 encontrado = true;
-                posicion = matriz[i][j];
+                cout << "Tu numero se encontro en la posicion : [" << i << "][" << j << "]\n" << endl;
+            }
         }
     }
 
     if (encontrado == false){
-        cout << "El numero que ingresaste no se ha encontrado" << endl;
-    } else {
-        cout << "Tu numero se encontró en la posicion :" << posicion << endl;
+        cout << "El numero que ingresaste no se ha encontrado.\n" << endl;
     }
 
+    cout << "Desea volver al menu interactivo?" << endl;
+    cout << "1. Si" << endl;
+    cout << "2. No" << endl;
+    cin >> volver;
+
+    switch(volver){
+        case 1:
+            main();
+            break;
+        case 2:
+            break;
+    }
+}
+
+void ordenarMatriz(){
+    int nArreglo = n*n;
+    int arreglo [nArreglo];
+    int k = 0;
+    int kAsc = 0;
+    int kDesc = 0;
+    //Llenando arreglo con los valores de la matriz.
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j ++){
+            arreglo[k] = matriz[i][j];
+            k++;
+        }
+    }
+
+    int opcion;
+    cout << "De que manera quiere ordenar la matriz?" << endl;
+    cout << "1. De manera ASCENDENTE" << endl;
+    cout << "2. De manera DESCENDENTE" << endl;
+    cout << "Elija la opcion: ";
+    cin >> opcion;
+    cout << endl;
+
+    int temp, pos;
+    switch(opcion){
+        
+        // ASCENDENTE
+        case 1:
+            for ( int i = 0; i < nArreglo; i++){
+                pos = i;
+                while((pos > 0) && (arreglo[pos - 1] > arreglo[pos])) {
+                    temp = arreglo[pos];
+                    arreglo[pos] = arreglo[pos - 1];
+                    arreglo[pos - 1] = temp;
+                    pos--;
+                }
+            }
+
+            for(int i = 0; i < n; i++){
+                for(int j = 0; j < n; j++){
+                    matriz[i][j] = arreglo[kAsc];
+                    kAsc++;
+                }
+            }
+            cout << "Su matriz esta ordenada de manera ascendente y es la siguiente: " << endl;
+            for (int i = 0; i<n; i++){
+                for (int j = 0; j < n; j++){
+                    cout << matriz[i][j] << "\t";
+                }
+                cout << endl;
+            }
+            break;
+
+        // DESCENDENTE
+        case 2:
+            for (int i = nArreglo-1; i >= 0; i--){
+                pos = i;
+                while((pos < nArreglo-1) && (arreglo[pos-1] < arreglo[pos])){
+                    temp = arreglo[pos];
+                    arreglo[pos] = arreglo[pos - 1];
+                    arreglo[pos - 1] = temp;
+                    pos++;
+                }
+            }
+            // VAMOS A VER SI EL ARREGLO ESTA ORDENADO DESCENDENTE
+            for(int i = 0; i <nArreglo; i++){
+                cout << '-' << arreglo[i] << '-';
+            }
+
+            // ACA TERMINA LA COMPROBEISHON (HAY ERROR DE ORDENAMIENTO)
+            for(int i = 0; i < n; i++){
+                for(int j = 0; j < n; j++){
+                    matriz[i][j] = arreglo[kDesc];
+                    kDesc++;
+                }
+            }
+
+            cout << "Su matriz esta ordenada de manera descendente y es la siguiente: " << endl;
+            for (int i = 0; i<n; i++){
+                for (int j = 0; j < n; j++){
+                    cout << matriz[i][j] << "\t";
+                }
+                cout << endl;
+            }
+            break;
+    }
 }
