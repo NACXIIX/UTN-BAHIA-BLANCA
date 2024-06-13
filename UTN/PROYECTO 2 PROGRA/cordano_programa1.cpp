@@ -218,19 +218,14 @@ void ordenarMatriz(){
         case 2:
             for (int i = nArreglo-1; i >= 0; i--){
                 pos = i;
-                while((pos < nArreglo-1) && (arreglo[pos-1] < arreglo[pos])){
+                while((pos < nArreglo-1) && (arreglo[pos+1] > arreglo[pos])){
                     temp = arreglo[pos];
-                    arreglo[pos] = arreglo[pos - 1];
-                    arreglo[pos - 1] = temp;
+                    arreglo[pos] = arreglo[pos + 1];
+                    arreglo[pos + 1] = temp;
                     pos++;
                 }
             }
-            // VAMOS A VER SI EL ARREGLO ESTA ORDENADO DESCENDENTE
-            for(int i = 0; i <nArreglo; i++){
-                cout << '-' << arreglo[i] << '-';
-            }
 
-            // ACA TERMINA LA COMPROBEISHON (HAY ERROR DE ORDENAMIENTO)
             for(int i = 0; i < n; i++){
                 for(int j = 0; j < n; j++){
                     matriz[i][j] = arreglo[kDesc];
@@ -245,6 +240,21 @@ void ordenarMatriz(){
                 }
                 cout << endl;
             }
+            break;
+    }
+    
+    int volver;
+    
+    cout << "Desea volver al menu interactivo?" << endl;
+    cout << "1. Si" << endl;
+    cout << "2. No" << endl;
+    cin >> volver;
+
+    switch(volver){
+        case 1:
+            main();
+            break;
+        case 2:
             break;
     }
 }
