@@ -96,8 +96,10 @@ void cargarMatriz(){
         }
 
     } while (respuesta != 1 && respuesta != 2 && respuesta !=3);
-
-    main();
+    
+    if (respuesta != 3){
+        main();
+    }
 }
 
 // MOSTRAR MATRIZ
