@@ -9,7 +9,7 @@ int matriz[n][n];
 
 //Prototipos de funciones
 int menu();
-void llenarMatriz();
+void cargarMatriz();
 void mostrarMatriz();
 void buscarValor();
 int devolverValor();
@@ -21,7 +21,7 @@ int main(){
 
     switch(op){
         case 1: 
-            llenarMatriz();
+            cargarMatriz();
             break;
         case 2:
             mostrarMatriz();
@@ -33,7 +33,7 @@ int main(){
             ordenarMatriz();
             break;
         case 6:
-            cout << "Saliste del menu" << endl;
+            cout << "Saliste del programa" << endl;
             break;
     }
 
@@ -61,7 +61,7 @@ int menu(){
 }
 
 // CARGAR LA MATRIZ
-void llenarMatriz(){
+void cargarMatriz(){
     srand(time(NULL));
     int respuesta;
     
@@ -70,6 +70,7 @@ void llenarMatriz(){
         cout << "1. Valores aleatorios" << endl;
         cout << "2. De manera manual" << endl;
         cout << "3. Volver al menu" << endl;
+        cout << "> ";
         cin >> respuesta;
 
         switch (respuesta){
@@ -162,12 +163,22 @@ void buscarValor(){
     }
 }
 
+
+
+int devolverValor(){
+    int numero = 2;
+    return numero;
+}
+
+
+// Funcion que ordena la matriz de manera ascendente o descendente.
 void ordenarMatriz(){
     int nArreglo = n*n;
     int arreglo [nArreglo];
     int k = 0;
     int kAsc = 0;
     int kDesc = 0;
+
     //Llenando arreglo con los valores de la matriz.
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j ++){
@@ -184,6 +195,7 @@ void ordenarMatriz(){
     cin >> opcion;
     cout << endl;
 
+    // Una vez ordenado el arreglo con los valores de la matriz, volvemos a cargar la matriz con los valores ordenados.
     int temp, pos;
     switch(opcion){
         
@@ -258,5 +270,3 @@ void ordenarMatriz(){
             break;
     }
 }
-
-int devolverValor(int)
