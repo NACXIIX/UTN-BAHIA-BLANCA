@@ -29,6 +29,9 @@ int main(){
         case 3:
             buscarValor();
             break;
+        case 4:
+            cout << "El valor es: " << devolverValor();
+            break;
         case 5:
             ordenarMatriz();
             break;
@@ -169,8 +172,47 @@ void buscarValor(){
 
 
 int devolverValor(){
-    int numero = 2;
-    return numero;
+    int nArreglo = n*n;
+    int arreglo [nArreglo];
+    int k = 0;
+    int mayor = 0;
+    int menor = 100;
+    int opcion;
+    int valorDevuelto;
+    //Llenando arreglo con los valores de la matriz.
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j ++){
+            arreglo[k] = matriz[i][j];
+            k++;
+        }
+    }
+
+    for(int i = 0; i < nArreglo; i++){
+        if (arreglo[i] < menor){
+            menor = arreglo[i];
+        }
+    
+        if (arreglo[i] > mayor){
+            mayor = arreglo[i];
+        }
+    }
+
+    cout << "Estas buscando el menor o el mayor?" << endl;
+    cout << "1. Mayor" << endl;
+    cout << "2. Menor" << endl;
+    cout << "> ";
+    cin >> opcion;
+
+    switch(opcion){
+        case 1:
+            valorDevuelto = mayor;
+            break;
+        case 2:
+            valorDevuelto = menor;
+            break;
+    }
+
+    return valorDevuelto;
 }
 
 
