@@ -258,3 +258,5 @@ void ordenarMatriz(){
             break;
     }
 }
+
+int devolverValor(int)
