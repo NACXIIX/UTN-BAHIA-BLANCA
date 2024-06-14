@@ -54,6 +54,7 @@ int menu(){
         cout << "4. Devolver el valor maximo o minimo de la matriz" << endl;
         cout << "5. Ordenar los valores de la matriz de forma ascendente o descendente" << endl;
         cout << "6. Salir del programa" << endl;
+        cout << "> ";
         cin >> opcion;
     } while (opcion <=0 || opcion > 6);
 
