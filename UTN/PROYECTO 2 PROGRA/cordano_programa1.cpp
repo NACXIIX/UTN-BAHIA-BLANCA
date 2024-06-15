@@ -6,10 +6,12 @@ using namespace std;
 //Funciones globales
 const int n = 3;
 int matriz[n][n];
+bool validacionMatrizCargada = false;
 
 //Prototipos de funciones
 int menu();
 void cargarMatriz();
+void mensajeErrorMatrizVacia();
 void mostrarMatriz();
 void buscarValor();
 int devolverValor();
@@ -24,18 +26,35 @@ int main(){
             cargarMatriz();
             break;
         case 2:
-            mostrarMatriz();
+            if (!validacionMatrizCargada){
+                mensajeErrorMatrizVacia();
+            } else {
+                mostrarMatriz();
+            }
             break;
         case 3:
-            buscarValor();
+            if (!validacionMatrizCargada){
+                mensajeErrorMatrizVacia();
+            } else {
+                buscarValor();
+            }
             break;
         case 4:
-            cout << "El valor es: " << devolverValor();
+            if (!validacionMatrizCargada){
+                mensajeErrorMatrizVacia();
+            } else {
+                cout << "El valor es: " << devolverValor();
+            }
             break;
         case 5:
-            ordenarMatriz();
+            if (!validacionMatrizCargada){
+                mensajeErrorMatrizVacia();
+            } else {
+                ordenarMatriz();
+            }
             break;
         case 6:
+            cout << ".\n..\n...\n...." << endl;
             cout << "Saliste del programa" << endl;
             break;
     }
@@ -50,15 +69,15 @@ int menu(){
 
     do{
         cout << "\t\t--- MENU INTERACTIVO ---" << '\n' << endl;
-        cout << "Elija una opcion.\n" << endl;
         cout << "1. Cargar la matriz" << endl;
         cout << "2. Mostrar los valores de la matriz" << endl;
         cout << "3. Buscar un valor especifico ingresado por el usuario dentro de la matriz" << endl;
         cout << "4. Devolver el valor maximo o minimo de la matriz" << endl;
         cout << "5. Ordenar los valores de la matriz de forma ascendente o descendente" << endl;
-        cout << "6. Salir del programa" << endl;
-        cout << "> ";
+        cout << "6. Salir del programa\n" << endl;
+        cout << "> Elija la opcion: ";
         cin >> opcion;
+        cout << endl;
     } while (opcion <=0 || opcion > 6);
 
     return opcion;
@@ -74,7 +93,7 @@ void cargarMatriz(){
         cout << "1. Valores aleatorios" << endl;
         cout << "2. De manera manual" << endl;
         cout << "3. Volver al menu" << endl;
-        cout << "> ";
+        cout << "> Elija la opcion: ";
         cin >> respuesta;
 
         switch (respuesta){
@@ -99,7 +118,9 @@ void cargarMatriz(){
         }
 
     } while (respuesta != 1 && respuesta != 2 && respuesta !=3);
-    
+
+    validacionMatrizCargada = true;
+
     if (respuesta != 3){
         main();
     }
@@ -120,18 +141,21 @@ void mostrarMatriz(){
     cout << "-------------------";
     cout << endl;
 
-    cout << "Esa es su matriz cargada. \nDesea volver al menu interactivo?" << endl;
-    cout << "1. Si" << endl;
-    cout << "2. No" << endl;
-    cin >> volver;
-    
-    switch(volver){
-        case 1:
-            main();
-            break;
-        case 2:
-            break;
-    }
+    do{
+        cout << "Esa es su matriz cargada. \nDesea volver al menu interactivo?" << endl;
+        cout << "1. Si" << endl;
+        cout << "2. No" << endl;
+        cout << "> Elija la opcion: ";
+        cin >> volver;
+        
+        switch(volver){
+            case 1:
+                main();
+                break;
+            case 2:
+                break;
+        }
+    } while (volver <= 0 || volver > 2);
 }
 
 //BUSQUEDA DE UN VALOR INGRESADO POR EL USUARIO DENTRO DE LA MATRIZ
@@ -139,34 +163,40 @@ void mostrarMatriz(){
 void buscarValor(){
     int numero, volver;
     bool encontrado = false;
-    cout << "Que numero estas buscando?";
+    cout << "Digite el valor que esta buscando" << endl;
+    cout << "> ";
     cin >> numero;
 
     for(int i = 0; i < n; i++){
         for (int j = 0; j < n; j++){
             if(matriz[i][j] == numero){
                 encontrado = true;
-                cout << "Tu numero se encontro en la posicion : [" << i << "][" << j << "]\n" << endl;
+                cout << "Tu numero se encontro en la posicion : [" << i << "][" << j << "]\n";
             }
         }
     }
 
     if (encontrado == false){
-        cout << "El numero que ingresaste no se ha encontrado.\n" << endl;
+        cout << "El numero que ingresaste no se ha encontrado.\n";
     }
 
-    cout << "Desea volver al menu interactivo?" << endl;
-    cout << "1. Si" << endl;
-    cout << "2. No" << endl;
-    cin >> volver;
+    do{
+        cout << "Desea volver al menu interactivo?" << endl;
+        cout << "1. Si" << endl;
+        cout << "2. No" << endl;
+        cout << "> Elija la opcion: ";
+        cin >> volver;
 
-    switch(volver){
-        case 1:
-            main();
-            break;
-        case 2:
-            break;
-    }
+        switch(volver){
+            case 1:
+                main();
+                break;
+            case 2:
+                cout << ".\n..\n...\n...." << endl;
+                cout << "Saliste del programa" << endl;
+                break;
+        }
+    } while (volver <= 0 || volver > 2);
 }
 
 
@@ -179,6 +209,7 @@ int devolverValor(){
     int menor = 100;
     int opcion;
     int valorDevuelto;
+    
     //Llenando arreglo con los valores de la matriz.
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j ++){
@@ -200,17 +231,22 @@ int devolverValor(){
     cout << "Estas buscando el menor o el mayor?" << endl;
     cout << "1. Mayor" << endl;
     cout << "2. Menor" << endl;
-    cout << "> ";
+    cout << "3. Volver al menu\n";
+    cout << "> Elija la opcion: ";
     cin >> opcion;
 
-    switch(opcion){
-        case 1:
-            valorDevuelto = mayor;
-            break;
-        case 2:
-            valorDevuelto = menor;
-            break;
-    }
+    do{
+        switch(opcion){
+            case 1:
+                valorDevuelto = mayor;
+                break;
+            case 2:
+                valorDevuelto = menor;
+                break;
+            case 3:
+                main();
+        }
+    } while (opcion <= 0 || opcion > 3);
 
     return valorDevuelto;
 }
@@ -299,12 +335,12 @@ void ordenarMatriz(){
             }
             break;
     }
-    
+
     int volver;
-    
     cout << "Desea volver al menu interactivo?" << endl;
     cout << "1. Si" << endl;
     cout << "2. No" << endl;
+    cout << "> Elija la opcion: ";
     cin >> volver;
 
     switch(volver){
@@ -312,6 +348,27 @@ void ordenarMatriz(){
             main();
             break;
         case 2:
+            cout << ".\n..\n...\n...." << endl;
+            cout << "Saliste del programa" << endl;
+            break;
+    }
+}
+
+void mensajeErrorMatrizVacia(){
+    cout << "PRIMERO DEBE CARGAR LA MATRIZ." << endl;
+    cout << "Desea volver al menu principal?" << endl;
+    cout << "1. SI" << endl;
+    cout << "2. NO" << endl;
+    cout << "> Elija la opcion: ";
+    int op;
+    cin >> op;
+    switch (op){
+        case 1:
+            main();
+            break;
+        case 2:
+            cout << ".\n..\n...\n...." << endl;
+            cout << "Saliste del programa" << endl;
             break;
     }
 }
