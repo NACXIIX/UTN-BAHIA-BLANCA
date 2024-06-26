@@ -1,29 +1,45 @@
-#! /bin/bash
+#!/bin/bash
 echo "-- BIENVENIDOS A LA CALCULADORA DEL TP5 --"
-echo "Porfavor digite dos numeros"
-echo "Numero 1: "
-read numero1
-echo "Numero 2: "
-read numero2
 
+while true; 
+do
+    echo "Por favor digite un numero, la operacion y luego el siguiente numero"
+    read -p "Ingrese el primer numero: " numero1
 
-echo "Que operacion desea realizar?"
-echo "1. SUMA"
-echo "2. RESTA"
-echo "3. MULTIPLICACION"
-echo "4. DIVISION"
-read opcion
+    echo "Que operacion desea realizar?"
+    echo "[ + ]||[ - ]"
+    echo "[ * ]||[ / ]"
+    read -p "Ingrese la operacion: " opcion
 
-case $opcion in
-    1)
-        echo "RESULTADO: $(( numero1 + numero2))"
-    ;;
-    2)
-        echo "RESULTADO: $(( numero1 - numero2))"
-    ;;
-    3)
-        echo "RESULTADO: $(( numero1 * numero2))"
-    ;;
-    4)
-        echo "RESULTADO: $(( numero1 / numero2))"
-esac
+    read -p "Ahora ingrese el segundo numero: " numero2
+
+    case $opcion in
+        +)
+            echo "RESULTADO--> $(( numero1 + numero2 ))"
+        ;;
+        -)
+            echo "RESULTADO--> $(( numero1 - numero2 ))"
+        ;;
+        \*)
+            echo "RESULTADO--> $(( numero1 * numero2 ))"
+        ;;
+        /)
+            if [ $numero2 -ne 0 ]; 
+                then
+                    echo "RESULTADO--> $(( numero1 / numero2 ))"
+                else
+                    echo "ERROR: La division por cero no es permitida"
+            fi
+        ;;
+        *)
+            echo "Operacion invalida"
+        ;;
+    esac
+
+    read -p "Quiere realizar otra operacion? (s/n): " opcion
+    if [[ $opcion != "s" && $opcion != "S" ]]; 
+        then
+            echo "Saliste de la calculadora virtual."
+        break
+    fi
+done
