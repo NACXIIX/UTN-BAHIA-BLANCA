@@ -13,7 +13,7 @@ void leerPrecios();
 // Programa principal
 int main(){
     leerPrecios();
-    cargarPrecios();
+
     return 0;
 }
 
@@ -33,13 +33,10 @@ void cargarPrecios(){
     } else {
         cout << "Hubo un error.";
     }
-
 }
-
 
 void leerPrecios(){
     ifstream archivo(coca);
-
     string linea;
     char delimitador = ','; // Este lo uso si quiero mostrar cada valor separado por coma
     char saltoDeLinea = '\n'; // Este lo uso si quiero mostrar fila por fila.
@@ -49,10 +46,14 @@ void leerPrecios(){
 
         while (getline(archivo,linea)){
             stringstream ss(linea);
-            string valor;
+            string idProducto, producto, volumen, precio, stock;
 
-            while (getline(ss,valor,saltoDeLinea)){
-                cout << "Valor: " << valor << endl;
+            while (getline(ss,idProducto,delimitador)){
+                cout << "ID Producto: " << idProducto << endl;
+                cout << "Producto: " << producto << endl;
+                cout << "Volumen: " << volumen << endl;
+                cout << "Precio: " << precio << endl;
+                cout << "Stock: " << stock << endl;
             }
         }
 
