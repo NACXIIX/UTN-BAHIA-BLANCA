@@ -12,6 +12,7 @@ void leerPrecios();
 
 // Programa principal
 int main(){
+    cargarPrecios();
     leerPrecios();
 
     return 0;
@@ -26,17 +27,20 @@ void cargarPrecios(){
     archivito.open(nombreArchivito.c_str(),ios::out);
     
     if (archivito.is_open()){
-
-        archivito<<"Hola, probando probando.. ja" << endl;
-        archivito<<"A ver si probamos un tab \t";
-        archivito<<"Hola.";
+        cout << "Ingrese el ID del producto: ";
+        getline(cin,archivito);
+        archivito<<"Coca" << ",";
+        archivito<<"Coca" << "," << endl;
+        archivito<<"1,";
+        archivito<<"3,";
+        archivito<<"2,";
     } else {
         cout << "Hubo un error.";
     }
 }
 
 void leerPrecios(){
-    ifstream archivo(coca);
+    ifstream archivo("a.csv");
     string linea;
     char delimitador = ','; // Este lo uso si quiero mostrar cada valor separado por coma
     char saltoDeLinea = '\n'; // Este lo uso si quiero mostrar fila por fila.
@@ -48,13 +52,17 @@ void leerPrecios(){
             stringstream ss(linea);
             string idProducto, producto, volumen, precio, stock;
 
-            while (getline(ss,idProducto,delimitador)){
-                cout << "ID Producto: " << idProducto << endl;
-                cout << "Producto: " << producto << endl;
-                cout << "Volumen: " << volumen << endl;
-                cout << "Precio: " << precio << endl;
-                cout << "Stock: " << stock << endl;
-            }
+            cout << "----\t----\t----\t";
+            getline(ss,idProducto,delimitador);
+                cout << "\nID Producto:" << idProducto << endl;
+            getline(ss,producto,delimitador);
+                cout << "Producto:" << producto << endl;
+            getline(ss,volumen,delimitador);
+                cout << "Volumen:" << volumen << endl;
+            getline(ss,precio,delimitador);
+                cout << "Precio:" << precio << endl;
+            getline(ss,stock,delimitador);
+                cout << "Stock:" << stock << endl;
         }
 
         archivo.close();
