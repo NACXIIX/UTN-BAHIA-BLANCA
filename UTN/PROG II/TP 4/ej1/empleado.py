@@ -1,14 +1,22 @@
 class Empleado:
     
     #INSTANCIA DE CLASE CONSTRUCTORES
-    def __init__(self, legajo:int, horasTrabajadasMes: int = 0, valorHora: float = 0):
-        self.__legajo = legajo
-        self.__horasTrabajadasMes = horasTrabajadasMes
-        self.__valorHora = valorHora
-        if self.__legajo < 0:
-            raise ValueError("El numero debe ser mayor a 0")
-        if not isinstance(self.__horasTrabajadasMes, int):
-            raise TypeError("El valor debe ser un numero entero")
+    def __init__(self, legajo:int, horasTrabajadasMes: int = 0, valorHora: float = 0.0):
+
+        if legajo > 0 and isinstance(legajo, int):
+            self.__legajo = legajo
+        else:
+            raise ValueError("El numero del legajo debe ser un numero entero positivo")
+        
+        if horasTrabajadasMes >= 0 and isinstance(horasTrabajadasMes, int):
+            self.__horasTrabajadasMes = horasTrabajadasMes
+        else:
+            raise TypeError("Las horas trabajadas deben ser un numero entero positivo mayor o igual a 0")
+
+        if valorHora >= 0 and isinstance(valorHora, (int, float)):
+            self.__valorHora = valorHora
+        else:
+            raise TypeError("El numero valor hora debe ser un numero positivo mayor o igual a 0")
         
     def establecerHorasTrabajadas(self, cantHoras:int):
         self.__horasTrabajadasMes = cantHoras
@@ -23,7 +31,7 @@ class Empleado:
         return f'{self.__horasTrabajadasMes}'
 
     def obtenerValorHora(self)->float:
-        return f'{self.__valorHora}'
+        return float(f'{self.__valorHora}')
     
     def obtenerSueldo(self)->float:
         return float(self.__horasTrabajadasMes * self.__valorHora)
