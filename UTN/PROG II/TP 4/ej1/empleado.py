@@ -13,11 +13,12 @@ class Empleado:
         else:
             raise TypeError("Las horas trabajadas deben ser un numero entero positivo mayor o igual a 0")
 
-        if valorHora >= 0 and isinstance(valorHora, (int, float)):
+        if valorHora >= 0 and isinstance(valorHora, float):
             self.__valorHora = valorHora
         else:
             raise TypeError("El numero valor hora debe ser un numero positivo mayor o igual a 0")
-        
+    
+    # COMANDOS
     def establecerHorasTrabajadas(self, cantHoras:int):
         horas_trabajadas_is_int = False
         if isinstance(cantHoras, int) and cantHoras >= 0:
@@ -36,6 +37,7 @@ class Empleado:
             valor_hora_is_float = False
         return valor_hora_is_float
     
+    # CONSULTAS
     def obtenerLegajo(self)->int:
         return int(f'{self.__legajo}')
 
@@ -48,6 +50,7 @@ class Empleado:
     def obtenerSueldo(self)->float:
         return float(self.__horasTrabajadasMes * self.__valorHora)
     
+    #RETORNAR ATRIBUTOS DEL OBJETO EN STR
     def __str__(self):
         return f'Legajo: {self.__legajo} -- Sueldo calculado: ${self.obtenerSueldo()} '
 

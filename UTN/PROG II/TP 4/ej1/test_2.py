@@ -4,7 +4,7 @@ class testEmpleadoParametros:
     
     @staticmethod
     def test():
-        empleado_1 = Empleado(1, 20, 3000)
+        empleado_1 = Empleado(1, 20, 3000.0)
         empleado_2 = Empleado(110)
         print(empleado_1)
         print(empleado_2)
