@@ -50,3 +50,4 @@ class Empleado:
     
     def __str__(self):
         return f'Legajo: {self.__legajo} -- Sueldo calculado: ${self.obtenerSueldo()} '
+
