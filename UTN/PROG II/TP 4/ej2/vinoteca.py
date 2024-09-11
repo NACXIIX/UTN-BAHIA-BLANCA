@@ -52,13 +52,12 @@ class Vinoteca:
 
     def venderJugos(self, unidades: int):
         puede_vender = False
+        
         if self.__CAPACIDAD_MAXIMA >= unidades:
             self.__cantJugos -= unidades
             puede_vender = True
-        elif self.__CAPACIDAD_MAXIMA < unidades:
+        if self.__CAPACIDAD_MAXIMA < unidades:
             self.__cantJugos -= self.__CAPACIDAD_MAXIMA
-            puede_vender = True
-        else:
             puede_vender = False
             
         return puede_vender
@@ -77,26 +76,24 @@ class Vinoteca:
 
     def venderVinosTintosJovenes(self, unidades:int):
         puede_vender = False
+        
         if self.__CAPACIDAD_MAXIMA >= unidades:
             self.__cantTintosJovenes -= unidades
             puede_vender = True
-        elif self.__CAPACIDAD_MAXIMA < unidades:
+        if self.__CAPACIDAD_MAXIMA < unidades:
             self.__cantTintosJovenes -= self.__CAPACIDAD_MAXIMA
-            puede_vender = True
-        else:
             puede_vender = False
             
         return puede_vender
 
     def venderVinosTintosAnejados(self, unidades:int):
         puede_vender = False
+        
         if self.__CAPACIDAD_MAXIMA >= unidades:
-            self.__cantTintosAnejados -= unidades
+            self.__cantTintosAnejados-= unidades
             puede_vender = True
-        elif self.__CAPACIDAD_MAXIMA < unidades:
+        if self.__CAPACIDAD_MAXIMA < unidades:
             self.__cantTintosAnejados -= self.__CAPACIDAD_MAXIMA
-            puede_vender = True
-        else:
             puede_vender = False
             
         return puede_vender
