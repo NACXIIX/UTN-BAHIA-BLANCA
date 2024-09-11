@@ -19,16 +19,28 @@ class Empleado:
             raise TypeError("El numero valor hora debe ser un numero positivo mayor o igual a 0")
         
     def establecerHorasTrabajadas(self, cantHoras:int):
-        self.__horasTrabajadasMes = cantHoras
+        horas_trabajadas_is_int = False
+        if isinstance(cantHoras, int) and cantHoras >= 0:
+            self.__horasTrabajadasMes = cantHoras
+            horas_trabajadas_is_int = True
+        else:
+            horas_trabajadas_is_int = False
+        return horas_trabajadas_is_int
 
     def establecerValorHora(self, valorHora: float):
-        self.__valorHora = valorHora
+        valor_hora_is_float = False
+        if isinstance(valorHora, float) and valorHora >= 0:
+            self.__valorHora = valorHora
+            valor_hora_is_float = True
+        else:
+            valor_hora_is_float = False
+        return valor_hora_is_float
     
     def obtenerLegajo(self)->int:
-        return f'{self.__legajo}'
+        return int(f'{self.__legajo}')
 
     def obtenerHorasTrabajadas(self)->int:
-        return f'{self.__horasTrabajadasMes}'
+        return int(f'{self.__horasTrabajadasMes}')
 
     def obtenerValorHora(self)->float:
         return float(f'{self.__valorHora}')

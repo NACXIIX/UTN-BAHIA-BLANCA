@@ -1,21 +1,28 @@
 from empleado import Empleado
 
-class testEmpleadoParametros:
+class testEmpleado:
+
     @staticmethod
     def test():
-        empleado_1 = Empleado(1, 20, 3000)
-        empleado_2 = Empleado(110)
-        print(empleado_1)
-        print(empleado_2)
-        print (f"El legajo del empleado 1 es: {empleado_1.obtenerLegajo()}")
-        print (f"El legajo del empleado 2 es: {empleado_2.obtenerLegajo()}")
+        legajo = int(input("Legajo: "))
+        horas_trabajadas_mes = int(input("Horas trabajadas mes:"))
+        valor_hora = int(input("Valor hora:"))
+        
+        empleado_1 = Empleado(legajo, horas_trabajadas_mes,valor_hora)
+        print(empleado_1) 
 
-        empleado_2.establecerHorasTrabajadas(35)
-        empleado_2.establecerValorHora(4000)
-        print(empleado_1)
-        print(empleado_2)
-
-        print(f"\nDatos del empleado 2\n\tLegajo: {empleado_2.obtenerLegajo()}\n\tHoras trabajadas: {empleado_2.obtenerHorasTrabajadas()} \n\tSueldo: {empleado_2.obtenerSueldo()} \n\tValor Hora: {empleado_2.obtenerValorHora()}") 
+        if legajo == empleado_1.obtenerLegajo():
+            print ("El legajo fue guardado correctamente.")
+        else:
+            print ("El Legajo ingresado no se guardaron correctamente.")
+        if horas_trabajadas_mes == empleado_1.obtenerHorasTrabajadas():
+            print ("Las horas trabajadas fueron guardadas correctamente")
+        else:
+            print ("Las horas trabajadas no se guardaron correctamente.")
+        if valor_hora == empleado_1.obtenerValorHora():
+            print ("El valor hora fue guardado correctamente.")
+        else:
+            print ("El valor hora no se guardo correctamente.")
 
 if __name__ == '__main__':
-    testEmpleadoParametros.test()
+    testEmpleado.test()
