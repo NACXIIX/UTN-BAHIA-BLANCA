@@ -11,7 +11,7 @@ class testEmpleadoParametros:
         print (f"El legajo del empleado 1 es: {empleado_1.obtenerLegajo()}") # legajo = 1
         print (f"El legajo del empleado 2 es: {empleado_2.obtenerLegajo()}") # legajo = 110
 
-        if empleado_2.establecerHorasTrabajadas(30): # hs trabajadas = 35
+        if empleado_2.establecerHorasTrabajadas(35): # hs trabajadas = 35
             print ("Las horas trabajadas se establecieron correctamente")
         else:
             print ("Las horas trabajadas deben ser un numero entero positivo mayor o igual a 0.")
