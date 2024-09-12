@@ -1,6 +1,8 @@
 from vinoteca import Vinoteca
 
 class testVinoteca:
+    
+    @staticmethod
     def test():
         vinoteca_1 = Vinoteca()
         vinoteca_2 = Vinoteca()

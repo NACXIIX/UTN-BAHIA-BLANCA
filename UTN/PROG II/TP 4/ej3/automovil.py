@@ -1,11 +1,26 @@
 class Automovil:
     # ATRIBUTOS DE INSTANCIA
     def __init__(self, marca:str, modelo:str, anio:int, velocidadMaxima:float, velocidadActual:float):
-        self.__marca = marca
-        self.__modelo = modelo
-        self.__anio = anio
-        self.__velocidadMaxima = velocidadMaxima
-        self.__velocidadActual = velocidadActual
+        if isinstance(marca, (str)):
+            self.__marca = marca
+        else:
+            raise TypeError("La marca del auto debe ser un string.")
+        if isinstance(modelo, str):
+            self.__modelo = modelo
+        else:
+            raise TypeError("El modelo del auto debe ser un string.")
+        if isinstance(anio, int) and anio > 0: 
+            self.__anio = anio
+        else:
+            raise TypeError("El anio del auto debe ser un numero entero positivo.")
+        if isinstance(velocidadMaxima, (int,float)) and velocidadMaxima >= 0:
+            self.__velocidadMaxima = velocidadMaxima
+        else:
+            raise TypeError("La velocidad maxima del auto debe ser un numero positivo.")
+        if isinstance(velocidadActual, (int, float)):
+            self.__velocidadActual = velocidadActual
+        else:
+            raise TypeError("La velocidad actual del auto debe ser un numero positivo.")
 
     # COMANDOS
     def establecerMarca(self, marca:str):

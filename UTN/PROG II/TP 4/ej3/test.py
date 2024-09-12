@@ -45,5 +45,6 @@ class TestAutomovil:
         auto_1.acelerar(120)
         auto_1.frenarPorCompleto()
         print (auto_1.obtenerVelocidadActual())
+
 if __name__ == '__main__':
     TestAutomovil.test()
