@@ -94,7 +94,11 @@ class Automovil:
         return f'{self.__velocidadMaxima}'
 
     def obtenerVelocidadActual(self):
-        return f'{self.__velocidadActual}'
+        return float(f'{self.__velocidadActual}')
 
     def calcularMinutosParaLlegar(self, distanciaKM:float)-> int:
-        pass
+        if self.__velocidadActual > 0 :
+            minutos_para_llegar = (distanciaKM // self.obtenerVelocidadActual()) * 60
+            return int(minutos_para_llegar)
+        else:
+            print ("El auto se encuentra detenido y no se puede calcular el tiempo para llegar")

@@ -49,6 +49,9 @@ class TestAutomovil:
             print ("El auto frenó por completo.")
         else:
             print("El auto no pudo frenar por alguna razon")
+        
+        print (auto_1.obtenerVelocidadActual())
+        print (auto_1.calcularMinutosParaLlegar(120))
 
 
 if __name__ == '__main__':
