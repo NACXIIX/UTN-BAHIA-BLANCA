@@ -51,8 +51,12 @@ class TestAutomovil:
             print("El auto no pudo frenar por alguna razon")
         
         print (auto_1.obtenerVelocidadActual())
+<<<<<<< Updated upstream
         print (auto_1.calcularMinutosParaLlegar(120))
 
 
+=======
+        
+>>>>>>> Stashed changes
 if __name__ == '__main__':
     TestAutomovil.test()

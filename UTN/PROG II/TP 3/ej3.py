@@ -7,6 +7,8 @@ ruta = r"C:\Users\Nico\Desktop\UTN-BAHIA-BLANCA\UTN\PROG II\TP 3\archivos\datos.
 
 archivo = open(ruta, "r")
 
-lista = [archivo.readlines() for linea in archivo]
+lista = [linea.strip() for linea in archivo]
+
+
 print (lista)
 archivo.close()

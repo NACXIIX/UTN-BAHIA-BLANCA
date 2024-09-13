@@ -1,4 +1,4 @@
-Producto, Volumen, Precio, Stock
-Cola, 500 mL, 1170, 8
-Cola, 1 L, 2170, 11
-Cola, 1.5 L, 2570, 5
+idProducto, Producto, Volumen, Precio, Stock
+ 001, Cola, 500 mL, $ 1170, 8
+ 002, Cola, 1 L, $ 2170, 11
+ 003, Cola, 1.5 L, $ 2570, 5
