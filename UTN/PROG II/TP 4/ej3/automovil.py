@@ -40,38 +40,44 @@ class Automovil:
 
     def acelerar(self, incrementoVelocidad:int):
         puede_acelerar = False
-        
+
         if self.__velocidadActual < self.__velocidadMaxima and self.__velocidadActual < incrementoVelocidad + self.__velocidadActual:
             self.__velocidadActual += incrementoVelocidad
             if self.__velocidadActual > self.__velocidadMaxima:
                 self.__velocidadActual = self.__velocidadActual - (self.__velocidadActual - self.__velocidadMaxima)
-                return False # Funciona bien pero acelera, hasta la velocidad maxima. Buscar la forma de printear que acelero pero no del todo
+                print ("Se esta intentando acelerar a una velocidad maxima permitida por el auto. La velocidad se ajustó a la velocidad maxima del auto. ")
+                return False 
             puede_acelerar = True
         else:
             self.__velocidadActual = self.__velocidadActual - (self.__velocidadActual - self.__velocidadMaxima)
             puede_acelerar = False
+
         return puede_acelerar
 
     def desacelerar(self, decrementoVelocidad:int):
-        puede_desaceler: False
+        puede_desacelerar: False
 
         if self.__velocidadActual > 0:
             self.__velocidadActual -= decrementoVelocidad
             if self.__velocidadActual < 0:
                 self.__velocidadActual = 0
-                return False #Funciona bien pero si desacelera, hasta 0. buscar la forma de printear que desacelero pero no del todo
-            puede_desaceler = True
+                print ("Se esta intentando desacelerar por de mas. ")
+                return False
+            puede_desacelerar = True
         else:
             self.__velocidadActual = 0
-            puede_desaceler = False
+            puede_desacelerar = False
         
-        return puede_desaceler
+        return puede_desacelerar
 
     def frenarPorCompleto(self):
         auto_detenido = False
+        if self.__velocidadActual == 0:
+            auto_detenido = True
         if self.__velocidadActual > 0:
             self.__velocidadActual = 0
             auto_detenido = True
+
         return auto_detenido
 
     #CONSULTAS
