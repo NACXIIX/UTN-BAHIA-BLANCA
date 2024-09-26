@@ -26,7 +26,7 @@ class testAutomovil():
                 auto_1.frenarPorCompleto()
                 print (f"El autó frenó.")
             if numero_aleatorio == 3:
-                print (f"Falta para llegar a destino {auto_1.calcularMinutosParaLlegar(50)} minutos.")
+                print (f"Falta para llegar a destino {auto_1.calcularMinutosParaLlegar(50.0)} minutos.")
         
 if __name__ == '__main__':
     testAutomovil.test()

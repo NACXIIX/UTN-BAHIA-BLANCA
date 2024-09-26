@@ -39,6 +39,12 @@ class Automovil:
         self.__velocidadActual = velocidad
 
     def acelerar(self, incrementoVelocidad:int):
+        """
+        El metodo acelerar aumenta la velocidad
+        en la cantidad recibida 
+        por parametro.
+        """
+
         puede_acelerar = False
 
         if self.__velocidadActual < self.__velocidadMaxima and self.__velocidadActual < incrementoVelocidad + self.__velocidadActual:
@@ -55,6 +61,12 @@ class Automovil:
         return puede_acelerar
 
     def desacelerar(self, decrementoVelocidad:int):
+        """
+        El metodo desacelerar disminuye la velocidad
+        en la cantidad recibida
+        por parametro.
+        """
+
         puede_desacelerar: False
 
         if self.__velocidadActual > 0:
@@ -71,6 +83,11 @@ class Automovil:
         return puede_desacelerar
 
     def frenarPorCompleto(self):
+        """
+        El metodo frenarPorCompleto
+        reestablece la velocidad en cero.
+        """
+        
         auto_detenido = False
         if self.__velocidadActual == 0:
             auto_detenido = True
@@ -82,23 +99,26 @@ class Automovil:
 
     #CONSULTAS
     def obtenerMarca(self):
-        return f'{self.__marca}'
+        return self.__marca
     
     def obtenerModelo(self):
-        return f'{self.__modelo}'
+        return self.__modelo
 
     def obtenerAnio(self):
-        return f'{self.__anio}'
+        return self.__anio
 
     def obtenerVelocidadMaxima(self):
-        return f'{self.__velocidadMaxima}'
+        return self.__velocidadMaxima
 
     def obtenerVelocidadActual(self):
-        return float(f'{self.__velocidadActual}')
+        return self.__velocidadActual
 
     def calcularMinutosParaLlegar(self, distanciaKM:float)-> int:
-        if self.__velocidadActual > 0 :
-            minutos_para_llegar = (distanciaKM // self.obtenerVelocidadActual()) * 60
-            return int(minutos_para_llegar)
+        if isinstance(distanciaKM, float) and distanciaKM >= 0:
+            if self.__velocidadActual > 0 :
+                minutos_para_llegar = (distanciaKM // self.obtenerVelocidadActual()) * 60
+                return int(minutos_para_llegar)
+            else:
+                print ("El auto se encuentra detenido y no se puede calcular el tiempo para llegar")
         else:
-            print ("El auto se encuentra detenido y no se puede calcular el tiempo para llegar")
+            raise TypeError("El valor ingresado debe ser un numero real positivo.")
