@@ -51,52 +51,64 @@ class Vinoteca:
             self.__cantTintosAnejados += diferencia
 
     def venderJugos(self, unidades: int):
-        puede_vender = False
-        
-        if self.__CAPACIDAD_MAXIMA >= unidades:
-            self.__cantJugos -= unidades
-            puede_vender = True
-        if self.__CAPACIDAD_MAXIMA < unidades:
-            self.__cantJugos -= self.__CAPACIDAD_MAXIMA
+        if isinstance(unidades, int):
             puede_vender = False
             
-        return puede_vender
+            if self.__CAPACIDAD_MAXIMA >= unidades:
+                self.__cantJugos -= unidades
+                puede_vender = True
+            if self.__CAPACIDAD_MAXIMA < unidades:
+                self.__cantJugos -= self.__CAPACIDAD_MAXIMA
+                puede_vender = False
+                
+            return puede_vender
+        else:
+            raise TypeError("El valor ingresado debe ser un numero entero.")
             
     def venderVinosBLancos(self, unidades:int):
-        puede_vender = False
-        
-        if self.__CAPACIDAD_MAXIMA >= unidades:
-            self.__cantBlancos -= unidades
-            puede_vender = True
-        if self.__CAPACIDAD_MAXIMA < unidades:
-            self.__cantBlancos -= self.__CAPACIDAD_MAXIMA
+        if isinstance(unidades, int):
             puede_vender = False
             
-        return puede_vender
-
+            if self.__CAPACIDAD_MAXIMA >= unidades:
+                self.__cantBlancos -= unidades
+                puede_vender = True
+            if self.__CAPACIDAD_MAXIMA < unidades:
+                self.__cantBlancos -= self.__CAPACIDAD_MAXIMA
+                puede_vender = False
+                
+            return puede_vender
+        else:
+            raise TypeError("El valor ingresado debe ser un numero entero.")
+        
     def venderVinosTintosJovenes(self, unidades:int):
-        puede_vender = False
-        
-        if self.__CAPACIDAD_MAXIMA >= unidades:
-            self.__cantTintosJovenes -= unidades
-            puede_vender = True
-        if self.__CAPACIDAD_MAXIMA < unidades:
-            self.__cantTintosJovenes -= self.__CAPACIDAD_MAXIMA
+        if isinstance (unidades, int):
             puede_vender = False
             
-        return puede_vender
-
+            if self.__CAPACIDAD_MAXIMA >= unidades:
+                self.__cantTintosJovenes -= unidades
+                puede_vender = True
+            if self.__CAPACIDAD_MAXIMA < unidades:
+                self.__cantTintosJovenes -= self.__CAPACIDAD_MAXIMA
+                puede_vender = False
+                
+            return puede_vender
+        else:
+            raise TypeError("El valor ingresado debe ser un numero entero.")
+        
     def venderVinosTintosAnejados(self, unidades:int):
-        puede_vender = False
-        
-        if self.__CAPACIDAD_MAXIMA >= unidades:
-            self.__cantTintosAnejados-= unidades
-            puede_vender = True
-        if self.__CAPACIDAD_MAXIMA < unidades:
-            self.__cantTintosAnejados -= self.__CAPACIDAD_MAXIMA
+        if isinstance (unidades, int):
             puede_vender = False
             
-        return puede_vender
+            if self.__CAPACIDAD_MAXIMA >= unidades:
+                self.__cantTintosAnejados-= unidades
+                puede_vender = True
+            if self.__CAPACIDAD_MAXIMA < unidades:
+                self.__cantTintosAnejados -= self.__CAPACIDAD_MAXIMA
+                puede_vender = False
+                
+            return puede_vender
+        else:
+            raise TypeError("El valor ingresado debe ser un numero entero.")
 
     # CONSULTAS
     def obtenerCantidadJugos(self)->int:
