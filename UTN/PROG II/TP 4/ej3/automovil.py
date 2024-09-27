@@ -24,19 +24,34 @@ class Automovil:
 
     # COMANDOS
     def establecerMarca(self, marca:str):
-        self.__marca = marca
+        if isinstance(marca, str):
+            self.__marca = marca
+        else:
+            raise TypeError("El valor ingresado debe ser una cadena de texto.")
     
     def establecerModelo(self, modelo:str):
-        self.__modelo = modelo
+        if isinstance(modelo, str):
+            self.__modelo = modelo
+        else:
+            raise TypeError("El valor ingresado debe ser una cadena de texto.")
 
     def establecerAnio(self, anio:int):
-        self.__anio = anio
+        if isinstance(anio, int):
+            self.__anio = anio
+        else:
+            raise TypeError("El valor ingresado debe ser un numero entero positivo.")
     
     def establecerVelocidadMaxima(self, velocidadMax:float):
-        self.__velocidadMaxima = velocidadMax
+        if isinstance(velocidadMax, float):
+            self.__velocidadMaxima = velocidadMax
+        else:
+            raise TypeError("El valor ingresado debe ser un numero real positivo.")
     
     def establecerVelocidadActual(self, velocidad:float):
-        self.__velocidadActual = velocidad
+        if isinstance(velocidad, float):
+            self.__velocidadActual = velocidad
+        else:
+            raise TypeError("El valor ingresado debe ser un numero real positivo.")
 
     def acelerar(self, incrementoVelocidad:int):
         """
@@ -44,21 +59,23 @@ class Automovil:
         en la cantidad recibida 
         por parametro.
         """
-
-        puede_acelerar = False
-
-        if self.__velocidadActual < self.__velocidadMaxima and self.__velocidadActual < incrementoVelocidad + self.__velocidadActual:
-            self.__velocidadActual += incrementoVelocidad
-            if self.__velocidadActual > self.__velocidadMaxima:
-                self.__velocidadActual = self.__velocidadActual - (self.__velocidadActual - self.__velocidadMaxima)
-                print ("Se esta intentando acelerar a una velocidad maxima permitida por el auto. La velocidad se ajustó a la velocidad maxima del auto. ")
-                return False 
-            puede_acelerar = True
-        else:
-            self.__velocidadActual = self.__velocidadActual - (self.__velocidadActual - self.__velocidadMaxima)
+        if isinstance(incrementoVelocidad, int) and incrementoVelocidad > 0:
             puede_acelerar = False
 
-        return puede_acelerar
+            if self.__velocidadActual < self.__velocidadMaxima and self.__velocidadActual < incrementoVelocidad + self.__velocidadActual:
+                self.__velocidadActual += incrementoVelocidad
+                if self.__velocidadActual > self.__velocidadMaxima:
+                    self.__velocidadActual = self.__velocidadActual - (self.__velocidadActual - self.__velocidadMaxima)
+                    print ("Se esta intentando acelerar a una velocidad superior a la maxima permitida por el auto. La velocidad se ajustó a la velocidad maxima del auto. ")
+                    return False 
+                puede_acelerar = True
+            else:
+                self.__velocidadActual = self.__velocidadActual - (self.__velocidadActual - self.__velocidadMaxima)
+                puede_acelerar = False
+
+            return puede_acelerar
+        else:
+            raise TypeError("El valor ingresado debe ser un numero mayor a 0.")
 
     def desacelerar(self, decrementoVelocidad:int):
         """
@@ -66,21 +83,23 @@ class Automovil:
         en la cantidad recibida
         por parametro.
         """
+        if isinstance(decrementoVelocidad, int) and decrementoVelocidad > 0:
+            puede_desacelerar: False
 
-        puede_desacelerar: False
-
-        if self.__velocidadActual > 0:
-            self.__velocidadActual -= decrementoVelocidad
-            if self.__velocidadActual < 0:
+            if self.__velocidadActual > 0:
+                self.__velocidadActual -= decrementoVelocidad
+                if self.__velocidadActual < 0:
+                    self.__velocidadActual = 0
+                    print ("Se esta intentando desacelerar por de mas. Velocidad ajustada en 0. ")
+                    return False
+                puede_desacelerar = True
+            else:
                 self.__velocidadActual = 0
-                print ("Se esta intentando desacelerar por de mas. ")
-                return False
-            puede_desacelerar = True
+                puede_desacelerar = False
+            
+            return puede_desacelerar
         else:
-            self.__velocidadActual = 0
-            puede_desacelerar = False
-        
-        return puede_desacelerar
+            raise TypeError("El valor ingresado debe ser un numero mayor a 0.")
 
     def frenarPorCompleto(self):
         """
@@ -114,11 +133,11 @@ class Automovil:
         return self.__velocidadActual
 
     def calcularMinutosParaLlegar(self, distanciaKM:float)-> int:
-        if isinstance(distanciaKM, float) and distanciaKM >= 0:
-            if self.__velocidadActual > 0 :
-                minutos_para_llegar = (distanciaKM // self.obtenerVelocidadActual()) * 60
+        if isinstance(distanciaKM, (float,int)) and distanciaKM >= 0:
+            if self.__velocidadActual > 0:
+                minutos_para_llegar = (distanciaKM / self.obtenerVelocidadActual()) * 60
                 return int(minutos_para_llegar)
             else:
                 print ("El auto se encuentra detenido y no se puede calcular el tiempo para llegar")
         else:
-            raise TypeError("El valor ingresado debe ser un numero real positivo.")
+            raise TypeError("El valor ingresado debe ser un numero positivo.")
