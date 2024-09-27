@@ -39,16 +39,16 @@ class Empleado:
     
     # CONSULTAS
     def obtenerLegajo(self)->int:
-        return int(f'{self.__legajo}')
+        return self.__legajo
 
     def obtenerHorasTrabajadas(self)->int:
-        return int(f'{self.__horasTrabajadasMes}')
+        return self.__horasTrabajadasMes
 
     def obtenerValorHora(self)->float:
-        return float(f'{self.__valorHora}')
+        return self.__valorHora
     
     def obtenerSueldo(self)->float:
-        return float(self.__horasTrabajadasMes * self.__valorHora)
+        return (self.__horasTrabajadasMes * self.__valorHora)
     
     #RETORNAR ATRIBUTOS DEL OBJETO EN STR
     def __str__(self):
