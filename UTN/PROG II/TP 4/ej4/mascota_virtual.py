@@ -183,6 +183,3 @@ class MascotaVirtual:
     
     def __str__(self):
         return f"Nombre: {self.obtenerNombre()} - Energia: {self.obtenerEnergia()} - Diversion: {self.obtenerDiversion()} - Higiene: {self.obtenerHigiene()} - Humor: {self.obtenerHumor()}"
-        
-panda = MascotaVirtual("Panda")
-print (panda)
