@@ -29,17 +29,23 @@ class Atleta:
         return self.__atleta
     
     def mismaDestrezaQue(self, otroAtleta: 'Atleta')-> bool:
-        return self.obtenerDestreza == otroAtleta.obtenerDestreza()
-    
-    def mayorDestrezaQue(self, otroAtleta: 'Atleta')-> bool:
-        self_destreza_es_mayor = False
-        
-        if self.__destreza > otroAtleta.obtenerDestreza():
-            self_destreza_es_mayor = True
+        if isinstance(otroAtleta, (object,str)):
+            return self.obtenerDestreza == otroAtleta.obtenerDestreza()
         else:
+            raise TypeError("El nombre ingresado por parametro debe ser un string.")
+        
+    def mayorDestrezaQue(self, otroAtleta: 'Atleta')-> bool:
+        if isinstance(otroAtleta, (object,str)):
             self_destreza_es_mayor = False
-            
-        return self_destreza_es_mayor
+        
+            if self.__destreza > otroAtleta.obtenerDestreza():
+                self_destreza_es_mayor = True
+            else:
+                self_destreza_es_mayor = False
+                
+            return self_destreza_es_mayor
+        else:
+            raise TypeError("El nombre ingresado por parametro debe ser un string.")
     
     def contadorEntrenamientos(self, entrenamiento:int):
         self.__CONTADOR_ENTRENAMIENTOS += entrenamiento

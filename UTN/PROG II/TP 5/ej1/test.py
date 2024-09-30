@@ -12,6 +12,7 @@ class TestAtleta:
         atleta_1.entrenar()
         atleta_1.entrenar()
         atleta_1.entrenar()
+        
         print (atleta_1)
         print (f"El atleta {atleta_1.obtenerNombre()} tiene {atleta_1.obtenerDestreza()} de destreza")
         
