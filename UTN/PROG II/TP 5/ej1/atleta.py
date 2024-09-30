@@ -13,11 +13,17 @@ class Atleta:
         self.__destreza = self.__MIN_VALOR
     
     def entrenar(self):
-        self.__energia -= 5
-        self.contadorEntrenamientos(1)
+        if self.__energia > 0:
+            self.__energia -= 5
+            self.contadorEntrenamientos(1)
+        
         
     def descansar(self):
-        self.__energia + 20
+        if self.__energia <= 100:
+            self.__energia += 20
+            if self.__energia >= 100:
+                self.__energia = self.__MAX_VALOR
+        
     
     def obtenerDestreza(self):
         return self.__destreza
@@ -32,7 +38,7 @@ class Atleta:
         if isinstance(otroAtleta, (object,str)):
             return self.obtenerDestreza == otroAtleta.obtenerDestreza()
         else:
-            raise TypeError("El nombre ingresado por parametro debe ser un string.")
+            raise TypeError("El valor ingresado por parametro debe ser un string.")
         
     def mayorDestrezaQue(self, otroAtleta: 'Atleta')-> bool:
         if isinstance(otroAtleta, (object,str)):
@@ -45,13 +51,16 @@ class Atleta:
                 
             return self_destreza_es_mayor
         else:
-            raise TypeError("El nombre ingresado por parametro debe ser un string.")
+            raise TypeError("El valor ingresado por parametro debe ser un string.")
     
     def contadorEntrenamientos(self, entrenamiento:int):
-        self.__CONTADOR_ENTRENAMIENTOS += entrenamiento
-        if self.__CONTADOR_ENTRENAMIENTOS == 5:
-            self.__destreza += 1 
-            self.__CONTADOR_ENTRENAMIENTOS = 0
+        if isinstance(entrenamiento, int):
+            self.__CONTADOR_ENTRENAMIENTOS += entrenamiento
+            if self.__CONTADOR_ENTRENAMIENTOS == 5:
+                self.__destreza += 1 
+                self.__CONTADOR_ENTRENAMIENTOS = 0
+        else:
+            raise TypeError("El valor ingresado por parametro debe ser un string.")
     
     def __str__(self):
         return f" - Nombre: {self.__atleta} - Energia: {self.__energia} - Destreza: {self.__destreza}\n"
