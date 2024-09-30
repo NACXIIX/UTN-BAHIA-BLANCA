@@ -24,6 +24,7 @@ class Atleta:
     
     def obtenerEnergia(self):
         return self.__energia
+    
     def obtenerNombre(self):
         return self.__atleta
     
