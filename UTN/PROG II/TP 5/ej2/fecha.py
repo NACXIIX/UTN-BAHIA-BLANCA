@@ -45,16 +45,50 @@ class Fecha:
         return self.__anio
     
     def esAnterior(self, otraFecha:'Fecha')->bool:
-        pass
-    
+        self_esAnterior = False
+        if isinstance(otraFecha, object):
+            if self.obtenerAnio() < otraFecha.obtenerAnio():
+                self_esAnterior = True
+                return self_esAnterior
+            elif (self.obtenerAnio() == otraFecha.obtenerAnio()):
+                if self.obtenerMes() < otraFecha.obtenerMes():
+                    self_esAnterior = True
+                    return self_esAnterior
+                elif self.obtenerMes() == otraFecha.obtenerMes():
+                    if self.obtenerDia() < otraFecha.obtenerDia():
+                        self_esAnterior = True
+                        return self_esAnterior
+                    else:
+                        return (print("Las fechas son iguales"))
+                        self_esAnterior = None
+                        return self_esAnterior
+
+        else:
+            raise TypeError("El parametro ingresado debe ser un objeto de tipo Fecha.")
+        
     def sumaDias(self, cantDias:int)->'Fecha':
         pass
     
     def diaSiguiente(self)->'Fecha':
-        pass
+        lista_datos_fecha = [self.__dia, self.__mes, self.__anio]
+        if lista_datos_fecha[0] < 31:
+            lista_datos_fecha[0] += 1
+        else:
+            if lista_datos_fecha[1] < 12:
+                lista_datos_fecha[1] += 1
+                lista_datos_fecha[0] = 1
+        return Fecha(lista_datos_fecha[0], lista_datos_fecha[1],lista_datos_fecha[2])
     
     def esIgualQue(self, otraFecha:'Fecha')->bool:
         pass
+    
+    def __str__(self):
+        return f'{self.__dia}/{self.__mes}/{self.__anio}'
 
-fechita = Fecha(12,10,1993)
-fechita_2 = Fecha(14,10,2024)
+fechita = Fecha(14,10,2000)
+fechita_2 = Fecha(14,10,2000)
+
+if fechita.esAnterior(fechita_2):
+    print("fecha 1 es anterior a fecha 2")
+elif not fechita.esAnterior(fechita_2):
+    print("fecha 2 es anterior a fecha 1")
