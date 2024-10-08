@@ -58,10 +58,7 @@ class Fecha:
                     if self.obtenerDia() < otraFecha.obtenerDia():
                         self_esAnterior = True
                         return self_esAnterior
-                    else:
-                        return (print("Las fechas son iguales"))
-                        self_esAnterior = None
-                        return self_esAnterior
+
 
         else:
             raise TypeError("El parametro ingresado debe ser un objeto de tipo Fecha.")
@@ -80,15 +77,7 @@ class Fecha:
         return Fecha(lista_datos_fecha[0], lista_datos_fecha[1],lista_datos_fecha[2])
     
     def esIgualQue(self, otraFecha:'Fecha')->bool:
-        pass
+        return self.obtenerDia() == otraFecha.obtenerDia() and self.obtenerMes() == otraFecha.obtenerMes() and self.obtenerAnio() == otraFecha.obtenerAnio()
     
     def __str__(self):
         return f'{self.__dia}/{self.__mes}/{self.__anio}'
-
-fechita = Fecha(14,10,2000)
-fechita_2 = Fecha(14,10,2000)
-
-if fechita.esAnterior(fechita_2):
-    print("fecha 1 es anterior a fecha 2")
-elif not fechita.esAnterior(fechita_2):
-    print("fecha 2 es anterior a fecha 1")
