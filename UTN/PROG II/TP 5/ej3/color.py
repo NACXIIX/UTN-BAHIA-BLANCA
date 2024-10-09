@@ -83,23 +83,39 @@ class Color:
         else:
             raise TypeError("El valor ingresado por parametro debe ser un objeto de tipo Color.")
         
-    def obtenerRojo(self):
+    def obtenerRojo(self)->int:
         return self.__rojo
     
-    def obtenerVerde(self):
+    def obtenerVerde(self)->int:
         return self.__verde
     
-    def obtenerAzul(self):
+    def obtenerAzul(self)->int:
         return self.__azul
+    
+    def esBlanco(self)->bool:
+        return self.__rojo == 255 and self.__verde == 255 and self.__azul == 255
+    
+    def esGris(self)->bool:
+        return self.__rojo == 50 and self.__verde == 50 and self.__azul == 50
+    
+    def esNegro(self)->bool:
+        return self.__rojo == 0 and self.__verde == 0 and self.__azul == 0
+    
+    def complemento(self)->'Color':
+        complementario_rojo = 255 - self.__rojo
+        complementario_verde = 255 - self.__verde
+        complementario_azul = 255 - self.__azul
+
+        return Color(complementario_rojo,complementario_verde,complementario_azul)
+    
+    def esIgualQue(self, otroColor: 'Color')->bool:
+        if isinstance(otroColor, object):
+            return self.__rojo == otroColor.obtenerRojo() and self.__verde == otroColor.obtenerVerde() and self.__azul == otroColor.obtenerAzul()
+        else:
+            raise TypeError("El valor ingresado por parametro debe ser un objeto de tipo Color")
+        
+    def clonar(self)->'Color':
+        return Color(self.__rojo,self.__verde,self.__azul)
     
     def __str__(self):
         return f"R:{self.__rojo} - G:{self.__verde} - B:{self.__azul}"
-    
-color = Color()
-color_1 = Color(150,231,58)
-
-print(color)
-print(color_1)
-
-color.copiar(color_1)
-print(color)
