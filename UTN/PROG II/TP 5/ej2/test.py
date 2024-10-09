@@ -36,6 +36,8 @@ class TestFecha:
         
         print(f"Probando fecha limite: {fecha_6}. Se le agrega un dia. Valor esperado: 1-1-2022 ")
         print(f"Sumando un dia.... RESULTADO: {fecha_7}")
+        
+        
 
 if __name__ == '__main__':
     TestFecha.test()
