@@ -58,22 +58,42 @@ class Fecha:
                     if self.obtenerDia() < otraFecha.obtenerDia():
                         self_esAnterior = True
                         return self_esAnterior
-
-
         else:
             raise TypeError("El parametro ingresado debe ser un objeto de tipo Fecha.")
         
     def sumaDias(self, cantDias:int)->'Fecha':
-        pass
+        sumar_dia = self.obtenerDia() + cantDias
+        
+        dia = self.__dia
+        mes = self.__mes
+        anio = self.__anio
+        
+        while sumar_dia > 31:
+            sumar_dia -= 31
+            mes += 1
+            
+            if mes > 12:
+                mes = 1
+                anio += 1
+                
+        dia = sumar_dia
+        
+        return Fecha(dia, mes, anio)
     
     def diaSiguiente(self)->'Fecha':
         lista_datos_fecha = [self.__dia, self.__mes, self.__anio]
+        
         if lista_datos_fecha[0] < 31:
             lista_datos_fecha[0] += 1
         else:
             if lista_datos_fecha[1] < 12:
-                lista_datos_fecha[1] += 1
+                lista_datos_fecha[1] += 1 
                 lista_datos_fecha[0] = 1
+            else:
+                lista_datos_fecha[2] += 1
+                lista_datos_fecha[1] = 1
+                lista_datos_fecha[0] = 1
+                
         return Fecha(lista_datos_fecha[0], lista_datos_fecha[1],lista_datos_fecha[2])
     
     def esIgualQue(self, otraFecha:'Fecha')->bool:
@@ -81,3 +101,9 @@ class Fecha:
     
     def __str__(self):
         return f'{self.__dia}/{self.__mes}/{self.__anio}'
+    
+fecha_1 = Fecha(10,12,2020)
+fecha_2 = fecha_1.sumaDias(60)
+
+print(fecha_1)
+print(fecha_2)

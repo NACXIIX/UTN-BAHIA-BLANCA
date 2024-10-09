@@ -18,7 +18,6 @@ class TestFecha:
         else:
             print("Fecha 2 no es equivalente a Fecha 1")
 
-
         fecha_3 = fecha_1.diaSiguiente()
         print(f"Fecha 3, con un dia mas que la Fecha 1: {fecha_3}")
 
@@ -31,6 +30,12 @@ class TestFecha:
             print("Fecha 4 es equivalente a Fecha 5")
         else:
             print("Fecha 4 no es equivalente a Fecha 5")
+        
+        fecha_6 = Fecha(31,12,2021)
+        fecha_7 = fecha_6.diaSiguiente()
+        
+        print(f"Probando fecha limite: {fecha_6}. Se le agrega un dia. Valor esperado: 1-1-2022 ")
+        print(f"Sumando un dia.... RESULTADO: {fecha_7}")
 
 if __name__ == '__main__':
     TestFecha.test()
