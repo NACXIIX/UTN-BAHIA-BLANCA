@@ -55,7 +55,7 @@ class TestColor():
         
         
         color_1 = color_5.complemento() # Aca lo que sucede es que a la variable color_1 se le asigna un nuevo objeto con el estado interno acorde al  complemento del estado interno que tiene el objeto que hace referencia a la variable color_5, todo esto mediante el metodo llamado complemento.
-        color_2 = color_5.clone() # A la variable color_2 se le asigna un objeto nuevo con el mismo estado interno que tiene el objeto al que hace referencia la variable color_5 
+        color_2 = color_5.clonar() # A la variable color_2 se le asigna un objeto nuevo con el mismo estado interno que tiene el objeto al que hace referencia la variable color_5 
         color_3 = color_2 # La variable color_3 toma la misma referencia al objeto al cual la variable color_2 esta referenciando, es decir las 2 variables apuntan al mismo objeto.
         
 

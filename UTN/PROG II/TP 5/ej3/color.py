@@ -76,7 +76,7 @@ class Color:
             raise TypeError("El valor ingresado por parametro debe ser un numero entero positivo entre 0 y 255 inclusive.")
     
     def copiar(self, otroColor: 'Color'):
-        if isinstance(otroColor, object):
+        if isinstance(otroColor, Color):
             self.__rojo = otroColor.obtenerRojo()
             self.__verde = otroColor.obtenerVerde()
             self.__azul = otroColor.obtenerAzul()
@@ -109,7 +109,7 @@ class Color:
         return Color(complementario_rojo,complementario_verde,complementario_azul)
     
     def esIgualQue(self, otroColor: 'Color')->bool:
-        if isinstance(otroColor, object):
+        if isinstance(otroColor, Color):
             return self.__rojo == otroColor.obtenerRojo() and self.__verde == otroColor.obtenerVerde() and self.__azul == otroColor.obtenerAzul()
         else:
             raise TypeError("El valor ingresado por parametro debe ser un objeto de tipo Color")

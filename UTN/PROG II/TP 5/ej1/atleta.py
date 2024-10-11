@@ -35,13 +35,13 @@ class Atleta:
         return self.__atleta
     
     def mismaDestrezaQue(self, otroAtleta: 'Atleta')-> bool:
-        if isinstance(otroAtleta, (object,str)):
+        if isinstance(otroAtleta, Atleta):
             return self.obtenerDestreza() == otroAtleta.obtenerDestreza()
         else:
             raise TypeError("El valor ingresado por parametro debe ser un string.")
         
     def mayorDestrezaQue(self, otroAtleta: 'Atleta')-> bool:
-        if isinstance(otroAtleta, (object,str)):
+        if isinstance(otroAtleta, Atleta):
             self_destreza_es_mayor = False
         
             if self.__destreza > otroAtleta.obtenerDestreza():

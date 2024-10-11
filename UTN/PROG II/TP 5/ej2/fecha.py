@@ -46,7 +46,7 @@ class Fecha:
     
     def esAnterior(self, otraFecha:'Fecha')->bool:
         self_esAnterior = False
-        if isinstance(otraFecha, object):
+        if isinstance(otraFecha, Fecha):
             if self.obtenerAnio() < otraFecha.obtenerAnio():
                 self_esAnterior = True
                 return self_esAnterior
