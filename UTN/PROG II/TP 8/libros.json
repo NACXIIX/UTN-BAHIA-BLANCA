@@ -1,0 +1,240 @@
+[
+    {
+        "nombre": "Cien años de soledad",
+        "autor": "Gabriel García Márquez",
+        "genero": "Novela",
+        "año": 1967,
+        "ISBN": 9681639540
+    },
+    {
+        "nombre": "Harry Potter y las reliquias de la muerte",
+        "autor": "J.K. Rowling",
+        "genero": "Fantasía",
+        "año": 2007,
+        "ISBN": 9780545010221
+    },
+    {
+        "nombre": "El juego de Ender",
+        "autor": "Orson Scott Card",
+        "genero": "Ciencia Ficción",
+        "año": 2013,
+        "ISBN": 9780812550702
+    },
+    {
+        "nombre": "1984",
+        "autor": "George Orwell",
+        "genero": "Distopía",
+        "año": 1949,
+        "ISBN": 9780451524935
+    },
+    {
+        "nombre": "Orgullo y prejuicio",
+        "autor": "Jane Austen",
+        "genero": "Romance",
+        "año": 1813,
+        "ISBN": 9780141439518
+    },
+    {
+        "nombre": "Moby Dick",
+        "autor": "Herman Melville",
+        "genero": "Aventura",
+        "año": 1851,
+        "ISBN": 9781503280786
+    },
+    {
+        "nombre": "El gran Gatsby",
+        "autor": "F. Scott Fitzgerald",
+        "genero": "Ficción",
+        "año": 1925,
+        "ISBN": 9780743273565
+    },
+    {
+        "nombre": "Crónica de una muerte anunciada",
+        "autor": "Gabriel García Márquez",
+        "genero": "Novela",
+        "año": 1981,
+        "ISBN": 9780307477492
+    },
+    {
+        "nombre": "Fahrenheit 451",
+        "autor": "Ray Bradbury",
+        "genero": "Ciencia Ficción",
+        "año": 1953,
+        "ISBN": 9781451673319
+    },
+    {
+        "nombre": "Los miserables",
+        "autor": "Victor Hugo",
+        "genero": "Novela",
+        "año": 1862,
+        "ISBN": 9780451470424
+    },
+    {
+        "nombre": "El proceso",
+        "autor": "Franz Kafka",
+        "genero": "Ficción",
+        "año": 1925,
+        "ISBN": 9780805209990
+    },
+    {
+        "nombre": "Cien años de soledad",
+        "autor": "Gabriel García Márquez",
+        "genero": "Novela",
+        "año": 1967,
+        "ISBN": 9780060883287
+    },
+    {
+        "nombre": "En busca del tiempo perdido",
+        "autor": "Marcel Proust",
+        "genero": "Novela",
+        "año": 1913,
+        "ISBN": 9780142437964
+    },
+    {
+        "nombre": "El viejo y el mar",
+        "autor": "Ernest Hemingway",
+        "genero": "Ficción",
+        "año": 1952,
+        "ISBN": 9780684801223
+    },
+    {
+        "nombre": "Don Quijote de la Mancha",
+        "autor": "Miguel de Cervantes",
+        "genero": "Novela",
+        "año": 1605,
+        "ISBN": 9788491050333
+    },
+    {
+        "nombre": "La metamorfosis",
+        "autor": "Franz Kafka",
+        "genero": "Ficción",
+        "año": 1915,
+        "ISBN": 9780141442021
+    },
+    {
+        "nombre": "El guardián entre el centeno",
+        "autor": "J.D. Salinger",
+        "genero": "Ficción",
+        "año": 1951,
+        "ISBN": 9780316769488
+    },
+    {
+        "nombre": "Cumbres borrascosas",
+        "autor": "Emily Brontë",
+        "genero": "Romance",
+        "año": 1847,
+        "ISBN": 9780141439556
+    },
+    {
+        "nombre": "El retrato de Dorian Gray",
+        "autor": "Oscar Wilde",
+        "genero": "Ficción",
+        "año": 1890,
+        "ISBN": 9780141439570
+    },
+    {
+        "nombre": "El túnel",
+        "autor": "Ernesto Sabato",
+        "genero": "Ficción",
+        "año": 1948,
+        "ISBN": 9788497599682
+    },
+    {
+        "nombre": "La sombra del viento",
+        "autor": "Carlos Ruiz Zafón",
+        "genero": "Ficción",
+        "año": 2001,
+        "ISBN": 9788408090702
+    },
+    {
+        "nombre": "Las intermitencias de la muerte",
+        "autor": "José Saramago",
+        "genero": "Ficción",
+        "año": 2005,
+        "ISBN": 9788433961920
+    },
+    {
+        "nombre": "Rayuela",
+        "autor": "Julio Cortázar",
+        "genero": "Novela",
+        "año": 1963,
+        "ISBN": 9788437604180
+    },
+    {
+        "nombre": "La casa de los espíritus",
+        "autor": "Isabel Allende",
+        "genero": "Ficción",
+        "año": 1982,
+        "ISBN": 9788408041986
+    },
+    {
+        "nombre": "La tregua",
+        "autor": "Mario Benedetti",
+        "genero": "Ficción",
+        "año": 1960,
+        "ISBN": 9788437604166
+    },
+    {
+        "nombre": "El amor en los tiempos del cólera",
+        "autor": "Gabriel García Márquez",
+        "genero": "Romance",
+        "año": 1985,
+        "ISBN": 9780307389731
+    },
+    {
+        "nombre": "Siddhartha",
+        "autor": "Hermann Hesse",
+        "genero": "Ficción",
+        "año": 1922,
+        "ISBN": 9780451524935
+    },
+    {
+        "nombre": "El alquimista",
+        "autor": "Paulo Coelho",
+        "genero": "Ficción",
+        "año": 1988,
+        "ISBN": 9780061122415
+    },
+    {
+        "nombre": "La guerra de los mundos",
+        "autor": "H.G. Wells",
+        "genero": "Ciencia Ficción",
+        "año": 1898,
+        "ISBN": 9781497689520
+    },
+    {
+        "nombre": "Crimen y castigo",
+        "autor": "Fiódor Dostoyevski",
+        "genero": "Ficción",
+        "año": 1866,
+        "ISBN": 9780486415871
+    },
+    {
+        "nombre": "En la orilla",
+        "autor": "Rosa Montero",
+        "genero": "Ficción",
+        "año": 1992,
+        "ISBN": 9788433975286
+    },
+    {
+        "nombre": "El niño con el pijama de rayas",
+        "autor": "John Boyne",
+        "genero": "Ficción histórica",
+        "año": 2005,
+        "ISBN": 9780385751537
+    },
+    {
+        "nombre": "El río de la concha",
+        "autor": "Manuel Rivas",
+        "genero": "Ficción",
+        "año": 1998,
+        "ISBN": 9788483832707
+    },
+    {
+        "nombre": "La sombra del viento",
+        "autor": "Carlos Ruiz Zafón",
+        "genero": "Misterio",
+        "año": 2005,
+        "ISBN": 9788408130827
+    }
+]
