@@ -66,7 +66,6 @@ class TesterContacto:
         with open("contactos.json", "r", encoding="utf-8") as file:
             data = json.load(file)
             for contacto in data:
-                contacto_dict = json.dumps(contacto)
                 lista_reconstruida_contactos.append(Contacto.deserializarContacto(contacto))
                 
         pedir_letra = str(input("letra: "))
