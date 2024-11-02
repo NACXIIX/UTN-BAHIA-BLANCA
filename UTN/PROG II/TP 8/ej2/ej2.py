@@ -27,14 +27,19 @@ class Contacto:
             "direccion":self.__direccion
         }
         return dict_contacto
+    
     @classmethod
-    def deserializarContacto(cls, json_data)->'Contacto':
-        if isinstance(json_data, dict):
-            data = json.loads(json_data)
+    def deserializarContacto(cls, data)->'Contacto':
+        if isinstance(data, dict):
             return cls(data["nombre"], data["apellido"], data["telefono"], data["correoElectronico"], data["direccion"])
         else:
             raise TypeError("El valor ingresado por parametro en json data debe ser de tipo diccionario.")
-        
+    
+    def obtenerApellido(self):
+        return self.__apellido
+
+    def __str__(self):
+        return f"Nombre: {self.__nombre} - Apellido: {self.__apellido} - Teléfono: {self.__telefono} - Correo Electrónico: {self.__correoEletronico} - Direccion: {self.__direccion}"
 
 class TesterContacto:
     @staticmethod
@@ -56,12 +61,19 @@ class TesterContacto:
         with open("contactos.json", "w", encoding="utf-8") as file:
             dict_contactos = [contacto.serializarContacto() for contacto in lista_contactos]
             json.dump(dict_contactos, file, ensure_ascii=False, indent=4)
-            
+        
         lista_reconstruida_contactos = []
         with open("contactos.json", "r", encoding="utf-8") as file:
             data = json.load(file)
             for contacto in data:
+                contacto_dict = json.dumps(contacto)
                 lista_reconstruida_contactos.append(Contacto.deserializarContacto(contacto))
-        
-        print (lista_reconstruida_contactos)
+                
+        pedir_letra = str(input("letra: "))
+        for contacto in lista_reconstruida_contactos:
+            apellido_contacto = contacto.obtenerApellido()
+            
+            if apellido_contacto[0].lower() == pedir_letra.lower():
+                print (contacto)
+
 TesterContacto.test()
