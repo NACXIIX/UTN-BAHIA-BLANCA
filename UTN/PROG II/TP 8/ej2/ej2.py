@@ -68,11 +68,15 @@ class TesterContacto:
             for contacto in data:
                 lista_reconstruida_contactos.append(Contacto.deserializarContacto(contacto))
                 
-        pedir_letra = str(input("letra: "))
+        pedir_letra = str(input("Buscar contacto/s por la primer letra, ingrese la letra: "))
+        contacto_encontrado = False
         for contacto in lista_reconstruida_contactos:
             apellido_contacto = contacto.obtenerApellido()
             
-            if apellido_contacto[0].lower() == pedir_letra.lower():
+            if pedir_letra.upper() == apellido_contacto[0]:
+                contacto_encontrado = True
                 print (contacto)
+        if not contacto_encontrado:
+            print ("No se encontró ningun contacto con esa inicial.")
 
 TesterContacto.test()
