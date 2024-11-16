@@ -87,4 +87,9 @@ class RepositorioPrestamos:
         return False
     
     def cantidadLibrosSinDevolver(self, isbn:int)->int:
-        pass
+        cantidad = 0
+        for prestamo in self.__prestamos:
+            if prestamo.obtenerISBN() == isbn:
+                if not self.estaDevuelto(prestamo):
+                    cantidad += 1
+        return cantidad
