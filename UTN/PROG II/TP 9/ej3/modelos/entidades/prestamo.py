@@ -22,7 +22,7 @@ class Prestamo:
         else:
             raise TypeError("El valor ingresado por parametro en dic debe ser de tipo diccionario.")
         
-    def __init__(self, id:int, socio_dni:int, libro_isbn:int, fecha_retiro: date, cant_dias:int, fecha_devolucion:date):
+    def __init__(self, id:int, socio_dni:int, libro_isbn:int, fecha_retiro: date, cant_dias:int, fecha_devolucion:date=None):
         if not isinstance(id, int) and not id > 0:
             raise TypeError("El valor ingresado por parametro en id debe ser un numero entero positivo")
         if not isinstance(socio_dni, int) and not socio_dni > 0:
@@ -33,8 +33,10 @@ class Prestamo:
             raise TypeError("El valor ingresado por parametro en fecha_retiro debe ser de tipo date")
         if not isinstance(cant_dias, int) and not cant_dias > 0:
             raise TypeError("El valor ingresado por parametro en cant_dias debe ser un numero entero positivo")
-        if not isinstance(fecha_devolucion, date):
-            raise TypeError("El valor ingresado por parametro en fecha_devolucion debe ser de tipo date")
+        if fecha_devolucion is not None:
+            if not isinstance(fecha_devolucion, date):
+                raise TypeError("El valor ingresado por parametro en fecha_devolucion debe ser de tipo date")
+        
         
         self.__id = id
         self.__socio_dni = socio_dni
@@ -76,6 +78,9 @@ class Prestamo:
     
     def establecerFechaDevolucion(self, fecha:date):
         self.__fecha_devolucion = fecha
+    
+    def obtenerID(self)->int:
+        return self.__id
     
     def obtenerSocioDNI(self)->int:
         return self.__socio_dni
