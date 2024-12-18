@@ -18,9 +18,13 @@ def obtenerVideojuegos():
 @bp_videojuegos.route("/videojuegos/<int:id>", methods = ["GET"])
 def obtenerVideojuego(id):
     videojuego = repo_Videojuegos.obtenerPorID(id)
+    is_navigator = 'Mozilla' in request.user_agent.string or 'Chrome' in request.user_agent.string
+    
     if repo_Videojuegos.existeID(id):
         response = jsonify([videojuego.toDict()])
         status_code = 200
+        if is_navigator:
+            return render_template(f"/videojuegos.html", videojuego=repo_Videojuegos.obtenerPorID(id))
     else:
         response = jsonify({"mensaje": "El videojuegojuego no existe"})
         status_code = 404

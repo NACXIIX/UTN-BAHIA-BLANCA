@@ -5,13 +5,25 @@ VIDEOJUEGOS
 {% endblock %}
 
 {% block contain %}
-{% for videojuego in videojuegos %}
+
 <div>
+
+    {% if videojuego %}
+    <ul>ID del titulo: {{videojuego['id'] }}</ul>
+    <ul>Título: {{ videojuego['titulo'] }}</ul>
+    <ul>Desarrollador ID: {{ videojuego['desarrollador_id'] }}</ul>
+    <ul>Fecha de lanzamiento: {{ videojuego['fecha_lanzamiento'] }}</ul>
+    <ul>Género ID: {{ videojuego['genero_id'] }}</ul>
+
+    {% else %}
+    {% for videojuego in videojuegos %}
     <h2>JUEGO {{ loop.index }}</h2>
+        <ul>ID del titulo: {{videojuego['id'] }}</ul>
         <ul>Título: {{ videojuego['titulo'] }}</ul>
         <ul>Desarrollador ID: {{ videojuego['desarrollador_id'] }}</ul>
         <ul>Fecha de lanzamiento: {{ videojuego['fecha_lanzamiento'] }}</ul>
         <ul>Género ID: {{ videojuego['genero_id'] }}</ul>
+        {% endfor %}
+    {% endif %}
 </div>
-{% endfor %}
 {% endblock %}
