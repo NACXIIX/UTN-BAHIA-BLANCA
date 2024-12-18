@@ -1,6 +1,6 @@
-from modelos.repos.repositorio_generos import Repo_Generos
-from modelos.repos.repositorio_videojuegos import Repo_videojuegos
-from modelos.repos.repositorio_desarrollador import Repo_desarrolladoras
+from models.repos.repositorio_generos import Repo_Generos
+from models.repos.repositorio_videojuegos import Repo_videojuegos
+from models.repos.repositorio_desarrollador import Repo_desarrolladoras
 
 repo_Generos = None
 repo_Videojuegos = None

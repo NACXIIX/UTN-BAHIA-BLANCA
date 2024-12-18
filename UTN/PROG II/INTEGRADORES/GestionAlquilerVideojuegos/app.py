@@ -1,8 +1,8 @@
 from flask import Flask
-from rutas.rutas_videojuegos import bp_videojuegos
-from rutas.rutas_desarrolladoras import bp_desarrolladoras
-from rutas.rutas_generos import bp_generos
-app = Flask(__name__)
+from routes.routes_videojuegos import bp_videojuegos
+from routes.routes_desarrolladoras import bp_desarrolladoras
+from routes.routes_generos import bp_generos
+app = Flask(__name__, template_folder="views/templates")
 
 app.register_blueprint(bp_videojuegos)
 app.register_blueprint(bp_desarrolladoras)

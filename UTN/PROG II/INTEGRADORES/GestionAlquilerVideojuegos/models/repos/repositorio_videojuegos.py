@@ -1,4 +1,4 @@
-from modelos.entidades.videojuego import Videojuego
+from models.entidades.videojuego import Videojuego
 import json
 import os
 

@@ -1,5 +1,5 @@
-from flask import request, jsonify, Blueprint
-from modelos.repos.repositorios import obtenerRepositorioVideojuegos
+from flask import request, jsonify, Blueprint, render_template
+from models.repos.repositorios import obtenerRepositorioVideojuegos
 
 repo_Videojuegos = obtenerRepositorioVideojuegos()
 
@@ -7,7 +7,13 @@ bp_videojuegos = Blueprint("bp_videojuegos", __name__)
 
 @bp_videojuegos.route("/videojuegos", methods = ["GET"])
 def obtenerVideojuegos():
-    return jsonify ([videojuego.toDict() for videojuego in repo_Videojuegos.obtenerTodos()]), 200
+    response = [videojuego.toDict() for videojuego in repo_Videojuegos.obtenerTodos()]
+    
+    is_navigator = "Mozilla" in request.user_agent.string or "Chrome" in request.user_agent.string
+    if not is_navigator:
+        return jsonify(response), 200
+    
+    return render_template("videojuegos.html", videojuegos=response)
 
 @bp_videojuegos.route("/videojuegos/<int:id>", methods = ["GET"])
 def obtenerVideojuego(id):
@@ -35,7 +41,7 @@ def agregarVideojuego():
             genero_id = data["genero_id"]
             if repo_Videojuegos.agregarVideojuego(id, titulo, desarrollador_id,fecha_lanzamiento,genero_id):
                 response = jsonify({"mensaje": "Juego agregado satisfactoriamente."})
-                status_code = 200
+                status_code = 201
             else:
                 response = jsonify({"error": "El videojuego ya existe."})
                 status_code = 400
