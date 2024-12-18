@@ -1,0 +1,107 @@
+[
+    {
+        "id": 1,
+        "titulo": "The Legend of Zelda: Breath of the Wild",
+        "desarrollador_id": 101,
+        "fecha_lanzamiento": "2017-03-03",
+        "genero_id": 1
+    },
+    {
+        "id": 2,
+        "titulo": "Super Mario Odyssey",
+        "desarrollador_id": 101,
+        "fecha_lanzamiento": "2017-10-27",
+        "genero_id": 2
+    },
+    {
+        "id": 3,
+        "titulo": "Red Dead Redemption 2",
+        "desarrollador_id": 102,
+        "fecha_lanzamiento": "2018-10-26",
+        "genero_id": 3
+    },
+    {
+        "id": 4,
+        "titulo": "The Witcher 3: Wild Hunt",
+        "desarrollador_id": 103,
+        "fecha_lanzamiento": "2015-05-19",
+        "genero_id": 3
+    },
+    {
+        "id": 5,
+        "titulo": "Horizon Zero Dawn",
+        "desarrollador_id": 104,
+        "fecha_lanzamiento": "2017-02-28",
+        "genero_id": 3
+    },
+    {
+        "id": 6,
+        "titulo": "Minecraft",
+        "desarrollador_id": 105,
+        "fecha_lanzamiento": "2011-11-18",
+        "genero_id": 4
+    },
+    {
+        "id": 7,
+        "titulo": "Overwatch",
+        "desarrollador_id": 106,
+        "fecha_lanzamiento": "2016-05-24",
+        "genero_id": 5
+    },
+    {
+        "id": 8,
+        "titulo": "Fortnite",
+        "desarrollador_id": 107,
+        "fecha_lanzamiento": "2017-07-25",
+        "genero_id": 5
+    },
+    {
+        "id": 9,
+        "titulo": "God of War",
+        "desarrollador_id": 108,
+        "fecha_lanzamiento": "2018-04-20",
+        "genero_id": 3
+    },
+    {
+        "id": 10,
+        "titulo": "Dark Souls III",
+        "desarrollador_id": 109,
+        "fecha_lanzamiento": "2016-04-12",
+        "genero_id": 3
+    },
+    {
+        "id": 11,
+        "titulo": "Uncharted 4: A Thief's End",
+        "desarrollador_id": 110,
+        "fecha_lanzamiento": "2016-05-10",
+        "genero_id": 6
+    },
+    {
+        "id": 12,
+        "titulo": "The Elder Scrolls V: Skyrim",
+        "desarrollador_id": 111,
+        "fecha_lanzamiento": "2011-11-11",
+        "genero_id": 3
+    },
+    {
+        "id": 13,
+        "titulo": "Cyberpunk 2077",
+        "desarrollador_id": 103,
+        "fecha_lanzamiento": "2020-12-10",
+        "genero_id": 3
+    },
+    {
+        "id": 14,
+        "titulo": "Celeste",
+        "desarrollador_id": 112,
+        "fecha_lanzamiento": "2018-01-25",
+        "genero_id": 7
+    },
+    {
+        "id": 15,
+        "titulo": "Animal Crossing: New Horizons",
+        "desarrollador_id": 101,
+        "fecha_lanzamiento": "2020-03-20",
+        "genero_id": 8
+    }
+]

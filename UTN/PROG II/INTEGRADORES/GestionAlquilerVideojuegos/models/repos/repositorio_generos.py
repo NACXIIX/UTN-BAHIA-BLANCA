@@ -1,8 +1,8 @@
 from models.entidades.genero import Genero
 import json
-
+import os
 class Repo_Generos:
-    __FILE_PATH = "datos/generos.json"
+    __FILE_PATH = "data/generos.json"
     
     def __init__(self):
         self.__generos = self.__cargarTodos()
@@ -16,7 +16,7 @@ class Repo_Generos:
                 for genero in data:
                     lista.append(Genero.fromDict(genero))
         except FileNotFoundError:
-            print ("No se encontró el archivo json")
+            print (f"No se encontró el archivo generos.json en la ruta {Repo_Generos.__FILE_PATH}")
         except json.JSONDecodeError as err:
             print (f"El archivo json no tiene formato json. ERROR {str(err)}")
         except Exception as err:

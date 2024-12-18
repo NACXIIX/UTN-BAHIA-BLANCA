@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIDEOJUEGOS</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <h1>{{videojuegos}}</h1>
-</body>
-</html>
+{% block title %} 
+VIDEOJUEGOS 
+{% endblock %}
+
+{% block contain %}
+{% for videojuego in videojuegos %}
+<div>
+    <h2>JUEGO {{ loop.index }}</h2>
+        <ul>Título: {{ videojuego['titulo'] }}</ul>
+        <ul>Desarrollador ID: {{ videojuego['desarrollador_id'] }}</ul>
+        <ul>Fecha de lanzamiento: {{ videojuego['fecha_lanzamiento'] }}</ul>
+        <ul>Género ID: {{ videojuego['genero_id'] }}</ul>
+</div>
+{% endfor %}
+{% endblock %}

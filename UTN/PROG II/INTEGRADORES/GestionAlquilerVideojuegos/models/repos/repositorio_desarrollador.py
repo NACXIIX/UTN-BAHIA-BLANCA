@@ -3,7 +3,7 @@ import json
 
 class Repo_desarrolladoras:
     
-    __FILE_PATH = "datos/desarrolladoras.json"
+    __FILE_PATH = "data/desarrolladoras.json"
     
     def __init__(self):
         self.__desarrolladoras = self.__cargarDesarrolladoras()
@@ -16,7 +16,7 @@ class Repo_desarrolladoras:
                 for desarrolladora in data:
                     lista.append(Desarrollador.fromDict(desarrolladora))
         except FileNotFoundError:
-            print ("No se encontró el archivo desarrolladoras.json")
+            print (f"No se encontró el archivo desarrolladoras.json en la ruta {Repo_desarrolladoras.__FILE_PATH}")
         except json.JSONDecodeError as err:
             print(f"El archivo desarrolladoras.json esta vacío o puede tener datos invalidos.\nERROR: {err}")
         except Exception as err:

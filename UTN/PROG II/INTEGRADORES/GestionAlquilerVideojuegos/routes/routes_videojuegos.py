@@ -13,7 +13,7 @@ def obtenerVideojuegos():
     if not is_navigator:
         return jsonify(response), 200
     
-    return render_template("videojuegos.html", videojuegos=response)
+    return render_template("videojuegos.html", videojuegos=response, contador_videojuegos = 1)
 
 @bp_videojuegos.route("/videojuegos/<int:id>", methods = ["GET"])
 def obtenerVideojuego(id):

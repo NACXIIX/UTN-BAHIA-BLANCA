@@ -3,7 +3,7 @@ import json
 import os
 
 class Repo_videojuegos:
-    __FILE_PATH = r"datos\videojuegos.json"
+    __FILE_PATH = "data/videojuegos.json"
     
     def __init__(self):
         self.__videojuegos = self.__cargarTodos()
@@ -17,7 +17,7 @@ class Repo_videojuegos:
                 for videojuego in data:
                     lista.append(Videojuego.fromDict(videojuego))
         except FileNotFoundError:
-            print ("No se encontró el archivo videojuegos.json")
+            print (f"No se encontró el archivo videojuegos.json en la ruta {Repo_videojuegos.__FILE_PATH}")
         except json.JSONDecodeError as err:
             print(f"El archivo videojuegos.json esta vacío o puede tener datos invalidos.\nERROR: {err}")
         except Exception as err:
