@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> {% block title %} PAGINA {% endblock %}</title>
+    <title> {% block title %} PAGINA PRINCIPAL {% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/videojuegos.css') }}">
 </head>
 
@@ -11,10 +11,10 @@
 
 {% block nav %}
 <nav>
-    <li>TODOS LOS JUEGOS</li>
-    <li>AGREGAR JUEGO</li>
-    <li>ACTUALIZAR JUEGO</li>
-    <li>ELIMINAR JUEGO</li>
+    <li class="nav-items">TODOS LOS JUEGOS</li>
+    <li class="nav-items">AGREGAR JUEGO</li>
+    <li class="nav-items">ACTUALIZAR JUEGO</li>
+    <li class="nav-items">ELIMINAR JUEGO</li>
 </nav>
 {% endblock %}
 <header> 
@@ -23,12 +23,12 @@
 
 <main>
     {% block contain %}
-        <form method="POST" class="form-user">
-            <div>
-                <label> usuario:</label>
-                <input type="text"> 
-                <label> Contraseña:</label>
-                <input type="password"> 
+        <form method="POST">
+            <div class="div-login-container">
+                <label class="label-login"> usuario:</label> <br>
+                <input type="text" class="input-login"> <br>
+                <label class="label-login"> Contraseña:</label>
+                <input type="password" class="input-login"> 
                 <button>Ingresar</button>
             </div>
         </form>
@@ -36,7 +36,7 @@
     {% endblock %}
 </main>
 
-<footer>
+<footer class="footer-style">
     {% block footer%} 2024 - Todos los derechos reservados {% endblock %}
 </footer>
 
