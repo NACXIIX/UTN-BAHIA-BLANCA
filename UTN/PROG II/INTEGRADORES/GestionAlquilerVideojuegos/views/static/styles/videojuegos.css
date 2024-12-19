@@ -2,7 +2,6 @@ h1 {
     color: red;
     text-align: center;
 }
-
 .card-container {
     margin: 2%;
     padding: 2%;
@@ -11,7 +10,6 @@ h1 {
     border-style: groove;
     text-align: center
 }
-
 .game-item {
     text-align: center;
 }
