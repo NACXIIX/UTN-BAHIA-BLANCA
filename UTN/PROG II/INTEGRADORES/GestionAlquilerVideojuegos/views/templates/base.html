@@ -23,16 +23,15 @@
 
 <main>
     {% block contain %}
-        <form method="POST">
-            <div class="div-login-container">
-                <label class="label-login"> usuario:</label> <br>
-                <input type="text" class="input-login"> <br>
-                <label class="label-login"> Contraseña:</label>
-                <input type="password" class="input-login"> 
-                <button>Ingresar</button>
-            </div>
+    <div class="div-login-container">
+        <form method="POST" class="form-login">
+            <label class="label-login"> usuario:</label> <br>
+            <input type="text" class="input-login"> <br>
+            <label class="label-login"> Contraseña:</label>
+            <input type="password" class="input-login"> 
+            <button class="button-login">Ingresar</button>
         </form>
-
+    </div>
     {% endblock %}
 </main>
 
