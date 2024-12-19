@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %} 
+VIDEOJUEGOS 
+{% endblock %}
+
+{% block contain %}
+    {% for videojuego in videojuegos %}
+    <div class="card-container">
+    <h2>JUEGO {{ loop.index }}</h2>
+        <ul class="game-item">ID del titulo: {{videojuego['id'] }}</ul>
+        <ul class="game-item">Título: {{ videojuego['titulo'] }}</ul>
+        <ul class="game-item">Desarrollador ID: {{ videojuego['desarrollador_id'] }}</ul>
+        <ul class="game-item">Fecha de lanzamiento: {{ videojuego['fecha_lanzamiento'] }}</ul>
+        <ul class="game-item">Género ID: {{ videojuego['genero_id'] }}</ul>
+    </div>
+    {% endfor %}
+{% endblock %}

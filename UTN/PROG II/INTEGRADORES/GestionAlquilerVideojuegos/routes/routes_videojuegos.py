@@ -8,26 +8,26 @@ bp_videojuegos = Blueprint("bp_videojuegos", __name__)
 @bp_videojuegos.route("/videojuegos", methods = ["GET"])
 def obtenerVideojuegos():
     response = [videojuego.toDict() for videojuego in repo_Videojuegos.obtenerTodos()]
-    
     is_navigator = "Mozilla" in request.user_agent.string or "Chrome" in request.user_agent.string
-    if not is_navigator:
-        return jsonify(response), 200
-    
-    return render_template("videojuegos.html", videojuegos=response, contador_videojuegos = 1)
+    if is_navigator:
+        return render_template("allgames.html", videojuegos=response)
+    return jsonify(response), 200
 
 @bp_videojuegos.route("/videojuegos/<int:id>", methods = ["GET"])
 def obtenerVideojuego(id):
     videojuego = repo_Videojuegos.obtenerPorID(id)
     is_navigator = 'Mozilla' in request.user_agent.string or 'Chrome' in request.user_agent.string
-    
     if repo_Videojuegos.existeID(id):
         response = jsonify([videojuego.toDict()])
         status_code = 200
         if is_navigator:
-            return render_template(f"/videojuegos.html", videojuego=repo_Videojuegos.obtenerPorID(id))
+            return render_template("uniquegame.html", videojuego=videojuego.toDict())
     else:
-        response = jsonify({"mensaje": "El videojuegojuego no existe"})
+        response = jsonify({"error": "El videojuegojuego no existe"})
         status_code = 404
+        idgame=id
+        if is_navigator:
+            return render_template("uniquegame.html", response=response, status_code=status_code, id=idgame)
     return response, status_code
 
 @bp_videojuegos.route("/videojuegos", methods = ["POST"])

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block contain %}
+    {% if videojuego %}
+    <div class="card-container">
+    <ul class="game-item">ID del titulo: {{videojuego['id'] }}</ul>
+    <ul class="game-item">Título: {{ videojuego['titulo'] }}</ul>
+    <ul class="game-item">Desarrollador ID: {{ videojuego['desarrollador_id'] }}</ul>
+    <ul class="game-item">Fecha de lanzamiento: {{ videojuego['fecha_lanzamiento'] }}</ul>
+    <ul class="game-item">Género ID: {{ videojuego['genero_id'] }}</ul>
+    </div>
+    {% else %}
+    <div class="card-container">
+    <h2>ERROR {{status_code}}: Game not found </h2>
+    </div>
+    {% endif %}
+{% endblock %}
