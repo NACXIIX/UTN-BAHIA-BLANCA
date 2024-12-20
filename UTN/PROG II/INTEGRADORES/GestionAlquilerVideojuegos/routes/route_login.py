@@ -8,9 +8,11 @@ def PaginaPrincipal():
 
 @bp_login.route("/login", methods=["POST"])
 def login():
+    # ESTO DESPUES SE MEJORA A UNA BD
     username = request.form["username"]
     password = request.form["password"]
     if username == "user" and password == "123456":
         return redirect("/videojuegos")
     else:
         return render_template("login.html", error="Datos incorrectos")
+
