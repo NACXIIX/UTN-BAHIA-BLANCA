@@ -1,4 +1,4 @@
-from models.entidades.desarrollador import Desarrollador
+from models.entities.desarrollador import Desarrollador
 import json
 
 class Repo_desarrolladoras:

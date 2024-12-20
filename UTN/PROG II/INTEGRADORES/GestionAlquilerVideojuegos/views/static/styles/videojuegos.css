@@ -1,11 +1,13 @@
 body {
     background-color: rgb(44, 45, 68);
 }
+
 h1 {
     text-align: center;
     color: #ffffff;
     text-shadow: 5px 5px 0 #2c2b2b;
 }
+
 .card-container {
     border: 3%;
     margin: 2%;
@@ -14,9 +16,11 @@ h1 {
     border-style: groove;
     text-align: center
 }
+
 .game-item {
     text-align: center;
 }
+
 .div-login-container {
     background-color: rgb(46, 45, 45);
     margin: 1%;
@@ -24,15 +28,19 @@ h1 {
     border-color: rgb(177, 177, 177);
     border-style: groove;
 }
+
 .label-login {
     color: rgb(255, 255, 255);
 }
+
 .nav-items {
     color: rgb(255, 255, 255);
 }
+
 .footer-style {
     color: rgb(255, 255, 255);
 }
+
 .input-login{
     background-color:bisque;
 }

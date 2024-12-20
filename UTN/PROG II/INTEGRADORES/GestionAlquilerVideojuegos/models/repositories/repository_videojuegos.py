@@ -1,6 +1,5 @@
-from models.entidades.videojuego import Videojuego
+from models.entities.videojuego import Videojuego
 import json
-import os
 
 class Repo_videojuegos:
     __FILE_PATH = "data/videojuegos.json"

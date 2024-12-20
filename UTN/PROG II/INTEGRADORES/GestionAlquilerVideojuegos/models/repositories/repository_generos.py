@@ -1,4 +1,4 @@
-from models.entidades.genero import Genero
+from models.entities.genero import Genero
 import json
 import os
 class Repo_Generos:
