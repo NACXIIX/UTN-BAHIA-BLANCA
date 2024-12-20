@@ -24,13 +24,14 @@ h1 {
 .div-login-container {
     background-color: rgb(46, 45, 45);
     margin: 1%;
-    padding: 1%;
+    padding: 400;
     border-color: rgb(177, 177, 177);
     border-style: groove;
 }
 
 .label-login {
-    color: rgb(255, 255, 255);
+    padding: 5px;
+    color: rgb(7, 6, 6);
 }
 
 .nav-items {
@@ -42,5 +43,22 @@ h1 {
 }
 
 .input-login{
+    padding: 3px;
     background-color:bisque;
+}
+
+.button-login {
+    text-align: center;
+    padding-top: 5px;
+    margin-top: 5px;
+    text-transform: capitalize;
+}
+
+.form-login {
+    background-color: antiquewhite;
+    padding: 12px 10px;
+    width: 200px;
+    height: 200px;
+    align-items: center;
+    text-align: center;
 }
