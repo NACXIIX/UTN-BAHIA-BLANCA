@@ -8,23 +8,33 @@ h1 {
     text-shadow: 5px 5px 0 #2c2b2b;
 }
 
+h2 {
+    text-align: center;
+}
 .card-container {
     border: 3%;
     margin: 2%;
     padding: 2%;
+    color: aliceblue;
     border-color: blue;
     border-style: groove;
-    text-align: center
+    text-align: center;
 }
 
 .game-item {
     text-align: center;
 }
 
-.div-login-container {
+.div-container {
+    margin: auto;
+    padding: 1px;
+    align-items: center;
+}
+.div-form-login-container {
     background-color: rgb(46, 45, 45);
-    margin: 1%;
-    padding: 400;
+    margin: auto;
+    padding: 0.5px;
+    width: 260px;
     border-color: rgb(177, 177, 177);
     border-style: groove;
 }
@@ -32,6 +42,7 @@ h1 {
 .label-login {
     padding: 5px;
     color: rgb(7, 6, 6);
+    text-align: center;
 }
 
 .nav-items {
@@ -39,7 +50,10 @@ h1 {
 }
 
 .footer-style {
+    margin: auto;
+    padding: 3%;
     color: rgb(255, 255, 255);
+    text-align: center;
 }
 
 .input-login{
@@ -49,16 +63,27 @@ h1 {
 
 .button-login {
     text-align: center;
-    padding-top: 5px;
+    padding-top: 3px;
     margin-top: 5px;
-    text-transform: capitalize;
+    text-transform: uppercase;
 }
 
 .form-login {
+    margin: auto;
+    padding: 12px 20px;
+    padding-top: 30%;
+    padding-bottom: 50;
     background-color: antiquewhite;
-    padding: 12px 10px;
     width: 200px;
     height: 200px;
-    align-items: center;
+    border-style: solid;
+    border-color: #f7c791 #313131;
+    border-width: 10px;
+    border-radius: 1px;
+}
+
+.error {
+    color:#ffffff;
+    text-transform:uppercase;
     text-align: center;
 }

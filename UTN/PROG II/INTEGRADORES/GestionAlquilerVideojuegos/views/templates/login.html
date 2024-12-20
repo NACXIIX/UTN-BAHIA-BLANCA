@@ -23,7 +23,23 @@
 
 <main>
     {% block contain %}
-        
+    <div class="container">
+        <div class="div-form-login-container">
+            <form class="form-login" method="POST" action="/login">
+                <label class="label-login"> Usuario</label> <br>
+                <input class="input-login" type="text" name="username"> <br>
+                <label class="label-login"> Contraseña</label>
+                <input class="input-login" type="password" name="password"> 
+                <button class="button-login">Ingresar</button>
+            </form>
+        </div>
+    </div>
+    {% if error %}
+    <div>
+        <h2 class="error">error</h2>
+        <p class="error"> {{error}}</p>
+    </div>
+    {% endif %}
     {% endblock %}
 </main>
 

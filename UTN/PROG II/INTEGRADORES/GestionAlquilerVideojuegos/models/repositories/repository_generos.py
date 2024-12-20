@@ -1,6 +1,6 @@
 from models.entities.genero import Genero
 import json
-import os
+
 class Repo_Generos:
     __FILE_PATH = "data/generos.json"
     

@@ -1,5 +1,5 @@
 from flask import request, jsonify, Blueprint
-from models.repos.repositorios import obtenerRepositorioDesarrolladoras
+from models.repositories.repository import obtenerRepositorioDesarrolladoras
 
 repo_Desarrolladoras = obtenerRepositorioDesarrolladoras()
 bp_desarrolladoras = Blueprint("bp_desarrolladoras", __name__)

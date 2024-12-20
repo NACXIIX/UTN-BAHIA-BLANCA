@@ -1,5 +1,5 @@
 from flask import request, jsonify, Blueprint
-from models.repos.repositorios import obtenerRepositorioGeneros
+from models.repositories.repository import obtenerRepositorioGeneros
 
 repo_Generos = obtenerRepositorioGeneros()
 

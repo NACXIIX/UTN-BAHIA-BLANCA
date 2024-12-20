@@ -1,5 +1,5 @@
 from flask import request, jsonify, Blueprint, render_template
-from models.repos.repositorios import obtenerRepositorioVideojuegos
+from models.repositories.repository import obtenerRepositorioVideojuegos
 
 repo_Videojuegos = obtenerRepositorioVideojuegos()
 
