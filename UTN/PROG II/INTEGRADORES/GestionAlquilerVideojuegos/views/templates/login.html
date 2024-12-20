@@ -1,28 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> {% block title %} PAGINA PRINCIPAL {% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/videojuegos.css') }}">
-</head>
+{% extends "base.html" %}
 
-<body>
+{% block title %} LOGIN PAGE {% endblock %}
 
-{% block nav %}
-<nav>
-    <li class="nav-items">TODOS LOS JUEGOS</li>
-    <li class="nav-items">AGREGAR JUEGO</li>
-    <li class="nav-items">ACTUALIZAR JUEGO</li>
-    <li class="nav-items">ELIMINAR JUEGO</li>
-</nav>
-{% endblock %}
-<header> 
-    {% block header %} <h1> VIDEOJUEGOS</h1> {% endblock %}
-</header>    
+{% block header %} <h1> LOGIN PAGE - GESTION DE VIDEOJUEGOS</h1> {% endblock %}
 
-<main>
-    {% block contain %}
+{% block contain %}
     <div class="container">
         <div class="div-form-login-container">
             <form class="form-login" method="POST" action="/login">
@@ -35,16 +17,9 @@
         </div>
     </div>
     {% if error %}
-    <div>
-        <h2 class="error">error</h2>
-        <p class="error"> {{error}}</p>
-    </div>
+        <div>
+            <h2 class="error">error</h2>
+            <p class="error"> {{error}}</p>
+        </div>
     {% endif %}
-    {% endblock %}
-</main>
-
-<footer class="footer-style">
-    {% block footer%} 2024 - Todos los derechos reservados {% endblock %}
-</footer>
-
-</body>
+{% endblock %}

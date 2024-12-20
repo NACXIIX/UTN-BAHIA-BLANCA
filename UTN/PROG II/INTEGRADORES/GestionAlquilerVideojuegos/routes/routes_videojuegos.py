@@ -10,7 +10,7 @@ def obtenerVideojuegos():
     response = [videojuego.toDict() for videojuego in repo_Videojuegos.obtenerTodos()]
     is_navigator = "Mozilla" in request.user_agent.string or "Chrome" in request.user_agent.string
     if is_navigator:
-        return render_template("allgames.html", videojuegos=response)
+        return render_template("all_games.html", videojuegos=response)
     return jsonify(response), 200
 
 @bp_videojuegos.route("/videojuegos/<int:id>", methods = ["GET"])
@@ -21,7 +21,7 @@ def obtenerVideojuego(id):
         response = jsonify([videojuego.toDict()])
         status_code = 200
         if is_navigator:
-            return render_template("uniquegame.html", videojuego=videojuego.toDict())
+            return render_template("game.html", videojuego=videojuego.toDict())
     else:
         response = jsonify({"error": "El videojuegojuego no existe"})
         status_code = 404

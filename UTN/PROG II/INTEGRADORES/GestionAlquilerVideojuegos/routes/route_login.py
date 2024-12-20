@@ -15,4 +15,3 @@ def login():
         return redirect("/videojuegos")
     else:
         return render_template("login.html", error="Datos incorrectos")
-
